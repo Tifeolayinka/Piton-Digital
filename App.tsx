@@ -45,8 +45,10 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-piton-black font-sans selection:bg-piton-accent selection:text-white cursor-none antialiased">
-      <CustomCursor />
+    <div className="min-h-screen bg-[#FDFDFD] text-piton-black font-sans selection:bg-piton-accent selection:text-white md:cursor-none antialiased">
+      <div className="hidden md:block">
+        <CustomCursor />
+      </div>
       <NoiseOverlay />
       <ClimbingLine />
       <Navbar />

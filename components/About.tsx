@@ -43,7 +43,7 @@ const About: React.FC = () => {
                     </div>
 
                     {/* Right Column - Visuals */}
-                    <div className="relative h-[400px] lg:h-[600px] w-full block mt-12 lg:mt-0">
+                    <div className="relative aspect-square lg:aspect-auto lg:h-[600px] w-full block mt-12 lg:mt-0">
                         <Reveal delay={0.3} className="h-full w-full">
                             {/* Main Image */}
                             <div className="absolute top-0 right-0 w-full lg:w-[80%] h-full lg:h-[85%] bg-zinc-100 rounded-2xl overflow-hidden shadow-2xl z-10">
