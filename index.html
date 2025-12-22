@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PITON | Digital Ascent Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              piton: {
+                black: '#111111', // Main text color
+                rock: '#F5F5F5',  // Light grey background
+                steel: '#E5E5E5', // Borders
+                accent: '#00A651', // Vivid Green
+                secondary: '#666666', // Secondary text
+                white: '#FFFFFF'
+              }
+            },
+            cursor: {
+              'crosshair': 'crosshair',
+            }
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+      body {
+        background-color: #FDFDFD;
+        color: #111111;
+        cursor: none; /* Hide default cursor for custom one */
+      }
+      
+      /* Custom Cursor */
+      .cursor-dot,
+      .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        z-index: 9999;
+        pointer-events: none;
+        mix-blend-mode: exclusion;
+      }
+
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background-color: white;
+      }
+
+      .cursor-outline {
+        width: 40px;
+        height: 40px;
+        border: 1px solid white;
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+      }
+      
+      /* Expand cursor on hoverable elements */
+      body:has(a:hover, button:hover, input:hover, .interactive:hover) .cursor-outline {
+        width: 60px;
+        height: 60px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: transparent;
+      }
+      
+      /* Remove scrollbar for cleaner look (optional, but premium feels often hide it or style it minimally) */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #00A651;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+    <script>
+      const dot = document.querySelector('.cursor-dot');
+      const outline = document.querySelector('.cursor-outline');
+
+      window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        // Dot follows immediately
+        if (dot) dot.style.left = `${posX}px`;
+        if (dot) dot.style.top = `${posY}px`;
+
+        // Outline follows with slight delay/easing
+        if (outline) {
+            outline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        }
+      });
+    </script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
