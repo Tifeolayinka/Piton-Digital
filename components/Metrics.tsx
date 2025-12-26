@@ -73,10 +73,10 @@ const Metrics: React.FC = () => {
             >
               {/* Decorative line */}
               <div className="absolute -left-4 top-0 bottom-0 w-[1px] bg-zinc-800 group-hover:bg-white/20 transition-colors duration-300 md:block hidden" />
-              
+
               <div className="pl-0 md:pl-6">
-                <motion.div 
-                  className="block text-5xl md:text-6xl font-display font-bold mb-2 bg-gradient-to-r from-white to-zinc-400 bg-clip-text text-transparent"
+                <motion.div
+                  className="block text-5xl md:text-6xl font-display font-bold mb-2 text-white md:bg-gradient-to-r md:from-white md:to-zinc-400 md:bg-clip-text md:text-transparent"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >

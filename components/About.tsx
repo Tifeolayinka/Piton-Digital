@@ -43,7 +43,7 @@ const About: React.FC = () => {
                     </div>
 
                     {/* Right Column - Visuals */}
-                    <div className="relative aspect-square lg:aspect-auto lg:h-[600px] w-full block mt-12 lg:mt-0">
+                    <div className="relative h-[500px] lg:h-[600px] w-full block mt-12 lg:mt-0">
                         <Reveal delay={0.3} className="h-full w-full">
                             {/* Main Image */}
                             <div className="absolute top-0 right-0 w-full lg:w-[80%] h-full lg:h-[85%] bg-zinc-100 rounded-2xl overflow-hidden shadow-2xl z-10">
@@ -54,7 +54,7 @@ const About: React.FC = () => {
                             <motion.div
                                 animate={{ y: [0, -20, 0] }}
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute -bottom-6 lg:bottom-10 left-4 lg:left-0 w-[70%] lg:w-[50%] h-[30%] lg:h-[40%] bg-white border border-zinc-100 rounded-2xl shadow-xl p-6 lg:p-8 z-20 flex flex-col justify-between"
+                                className="absolute bottom-4 lg:bottom-10 left-4 lg:left-0 w-[70%] lg:w-[50%] h-[30%] lg:h-[40%] bg-white border border-zinc-100 rounded-2xl shadow-xl p-6 lg:p-8 z-20 flex flex-col justify-between"
                             >
                                 <div className="flex justify-between items-start">
                                     <span className="text-3xl lg:text-5xl font-display font-bold text-piton-black">7+</span>

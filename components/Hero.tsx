@@ -78,7 +78,7 @@ const Hero: React.FC = () => {
             className="flex justify-center mb-6"
           >
             <span className="text-xs font-mono text-piton-secondary uppercase tracking-wider">
-              → Rise above the noise • Own your Category ←
+              → Clarity • Structure • Scale ←
             </span>
           </motion.div>
 
@@ -90,7 +90,7 @@ const Hero: React.FC = () => {
               }}
               className="text-4xl md:text-7xl font-display font-bold tracking-tight text-piton-black mb-8 leading-[1.1] transform-gpu"
             >
-              Your Product Strategy, <br /> Design & Development <br /> Partner
+              We build scalable digital products for founders who care about clarity.
             </motion.h1>
           </div>
 
@@ -101,9 +101,7 @@ const Hero: React.FC = () => {
             }}
             className="text-base md:text-xl text-piton-secondary max-w-3xl mx-auto mb-10 font-light leading-relaxed"
           >
-            From idea to launch, we help founders to design & develop credibility-rich &
-            conversion-ready web & mobile apps - clarifying your value, inspiring confidence
-            and defining the space you play in
+            Stop drowning in messy workflows. We build structured, scalable internal tools and MVPs that actually work—handling strategy, design, and no-code development in one unified process.
           </motion.p>
 
           {/* Trust Badge */}
@@ -135,15 +133,15 @@ const Hero: React.FC = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <a
-              href="#contact"
+              href="#starter-offer"
               className="px-8 py-4 bg-piton-black text-white rounded-full font-bold text-sm hover:scale-105 transition-transform flex items-center gap-3 interactive shadow-xl shadow-piton-black/20"
             >
-              <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-600">
-                <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Me" />
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-zinc-600 flex items-center justify-center bg-zinc-800">
+                <span className="text-xs">🚀</span>
               </div>
               <div className="flex flex-col text-left leading-none">
-                <span>Book an intro call</span>
-                <span className="text-[9px] text-zinc-400 font-normal mt-1">Friendly chat, no pressure</span>
+                <span>Start with a $500 Starter Module</span>
+                <span className="text-[9px] text-zinc-400 font-normal mt-1">Low risk, fast progress</span>
               </div>
             </a>
 
@@ -151,7 +149,7 @@ const Hero: React.FC = () => {
               href="#work"
               className="px-8 py-4 bg-transparent text-piton-black font-medium text-sm hover:bg-zinc-50 rounded-full transition-all interactive flex items-center gap-2"
             >
-              View our works
+              Book a short call
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
@@ -163,7 +161,7 @@ const Hero: React.FC = () => {
             }}
             className="mt-6 text-xs text-zinc-400"
           >
-            First impressions are everything. Let's get yours right.
+            Structured execution. No fluff.
           </motion.div>
 
           <motion.div

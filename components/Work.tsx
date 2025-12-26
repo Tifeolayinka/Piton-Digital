@@ -315,7 +315,8 @@ const Work: React.FC = () => {
 
   return (
     <>
-      <section id="work" ref={targetRef} className="relative h-[300vh] bg-[#FDFDFD]">
+      {/* Desktop: Horizontal Scroll */}
+      <section id="work" ref={targetRef} className="relative h-[300vh] bg-[#FDFDFD] hidden md:block">
         {/* Sticky Container */}
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
 
@@ -366,6 +367,89 @@ const Work: React.FC = () => {
               </a>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Mobile: Vertical List */}
+      <section id="work-mobile" className="py-24 bg-[#FDFDFD] md:hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-3 h-3 bg-piton-accent rounded-full animate-pulse"></span>
+              <span className="text-xs font-mono uppercase tracking-widest">Selected Expeditions</span>
+            </div>
+            <h2 className="text-5xl font-display font-bold text-piton-black leading-[0.9] tracking-tighter mb-4">
+              PROVEN<br />RESULTS
+            </h2>
+            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-zinc-400">
+              <ArrowRight className="w-4 h-4 text-piton-accent" />
+              <span>See What's Possible</span>
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {projects.map((project, i) => (
+              <div
+                key={i}
+                onClick={() => project.caseStudy && setSelectedProject(project.caseStudy)}
+                className={`relative h-[60vh] rounded-2xl overflow-hidden ${project.caseStudy ? 'cursor-pointer' : ''} group`}
+              >
+                {/* Image Container */}
+                <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex">
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10 pointer-events-none" />
+
+                  {/* Left Image (Main) */}
+                  <div className={`relative h-full overflow-hidden transition-all duration-700 ease-in-out ${project.hoverImage ? 'w-1/2 group-hover:w-0' : 'w-full'}`}>
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Right Image (Hover) */}
+                  {project.hoverImage && (
+                    <div className="relative h-full overflow-hidden w-1/2 group-hover:w-full transition-all duration-700 ease-in-out">
+                      <img
+                        src={project.hoverImage}
+                        alt={`${project.title} Preview`}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  )}
+
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
+                    <div className="flex justify-between items-start">
+                      <span className="text-xs font-mono uppercase tracking-widest opacity-70">0{i + 1}</span>
+                      <div className="flex gap-2 flex-wrap">
+                        {project.tags.map((tag, idx) => (
+                          <span key={idx} className="px-2 py-1 border border-white/20 text-[10px] font-mono uppercase tracking-wider backdrop-blur-sm">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="text-4xl font-display font-bold leading-[0.9] tracking-tighter mb-4">
+                        {project.title.split(' ').map((word, idx) => (
+                          <span key={idx} className="block">{word}</span>
+                        ))}
+                      </h3>
+
+                      {project.caseStudy && (
+                        <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                          <span className="text-sm font-mono uppercase tracking-wider">View Case Study</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
