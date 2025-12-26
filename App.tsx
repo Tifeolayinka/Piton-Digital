@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HeroScroll from './components/HeroScroll';
@@ -14,6 +15,7 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import ClimbingLine from './components/ClimbingLine';
 import CustomCursor from './components/CustomCursor';
+import LoadingScreen from './components/LoadingScreen';
 import Admin from './src/pages/Admin';
 
 const NoiseOverlay = () => (
@@ -29,6 +31,7 @@ const NoiseOverlay = () => (
 
 const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const checkHash = () => {
@@ -46,6 +49,10 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFDFD] text-piton-black font-sans selection:bg-piton-accent selection:text-white md:cursor-none antialiased">
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
       <div className="hidden md:block">
         <CustomCursor />
       </div>
