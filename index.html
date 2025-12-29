@@ -86,46 +86,12 @@
         background: #00A651;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
-  }
-}
-</script>
+
 <link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
-    <!-- Custom Cursor Elements -->
-    <div class="cursor-dot hidden md:block"></div>
-    <div class="cursor-outline hidden md:block"></div>
-    <script>
-      const dot = document.querySelector('.cursor-dot');
-      const outline = document.querySelector('.cursor-outline');
 
-      window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
-
-        // Dot follows immediately
-        if (dot) dot.style.left = `${posX}px`;
-        if (dot) dot.style.top = `${posY}px`;
-
-        // Outline follows with slight delay/easing
-        if (outline) {
-            outline.animate({
-                left: `${posX}px`,
-                top: `${posY}px`
-            }, { duration: 500, fill: "forwards" });
-        }
-      });
-    </script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>

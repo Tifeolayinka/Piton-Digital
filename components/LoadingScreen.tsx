@@ -10,12 +10,12 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
     const [count, setCount] = useState(0);
 
     useEffect(() => {
-        // Slower sequence timing - 5.5 seconds total
+        // Faster sequence timing - 2 seconds total
         const sequence = [
-            { time: 500, step: 1 },  // Client message
-            { time: 1500, step: 2 }, // Typing indicator
-            { time: 3500, step: 3 }, // Piton message
-            { time: 5500, step: 4 }, // Complete
+            { time: 200, step: 1 },  // Client message
+            { time: 600, step: 2 },  // Typing indicator
+            { time: 1400, step: 3 }, // Piton message
+            { time: 2000, step: 4 }, // Complete
         ];
 
         const timeouts = sequence.map(({ time, step: s }) =>
@@ -30,7 +30,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
 
     // Counter animation
     useEffect(() => {
-        const duration = 5500; // 5.5 seconds
+        const duration = 2000; // 2 seconds
         const steps = 100;
         const intervalTime = duration / steps;
 

@@ -15,6 +15,12 @@ interface Particle {
 const InteractiveParticles: React.FC<InteractiveParticlesProps> = ({ mousePosition }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
+    const mousePosRef = useRef(mousePosition);
+
+    useEffect(() => {
+        mousePosRef.current = mousePosition;
+    }, [mousePosition]);
+
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
@@ -63,8 +69,8 @@ const InteractiveParticles: React.FC<InteractiveParticlesProps> = ({ mousePositi
                 if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
                 // Mouse interaction (Repulsion & Spotlight)
-                const dx = mousePosition.x - p.x;
-                const dy = mousePosition.y - p.y;
+                const dx = mousePosRef.current.x - p.x;
+                const dy = mousePosRef.current.y - p.y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 const maxDistance = 200;
 
@@ -118,7 +124,7 @@ const InteractiveParticles: React.FC<InteractiveParticlesProps> = ({ mousePositi
             window.removeEventListener('resize', resizeCanvas);
             cancelAnimationFrame(animationFrameId);
         };
-    }, [mousePosition]);
+    }, []);
 
     return (
         <canvas

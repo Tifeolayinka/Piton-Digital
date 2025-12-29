@@ -17,6 +17,8 @@ import ClimbingLine from './components/ClimbingLine';
 import CustomCursor from './components/CustomCursor';
 import LoadingScreen from './components/LoadingScreen';
 import Admin from './src/pages/Admin';
+import CaseStudyModal, { CaseStudyData } from './components/CaseStudyModal';
+
 
 const NoiseOverlay = () => (
   <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay">
@@ -32,6 +34,8 @@ const NoiseOverlay = () => (
 const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<CaseStudyData | null>(null);
+
 
   useEffect(() => {
     const checkHash = () => {
@@ -65,8 +69,9 @@ const App: React.FC = () => {
 
         {/* Scrolling Works Marquee replacing the Vibe Console */}
         <div className="relative z-20 -mt-10 mb-20 w-full overflow-hidden">
-          <HeroScroll />
+          <HeroScroll onProjectClick={setSelectedProject} />
         </div>
+
 
         <Challenges />
         <Services />
@@ -74,12 +79,24 @@ const App: React.FC = () => {
         <About />
         <AboutMe />
         <Metrics />
-        <Work />
+        <Work onProjectClick={setSelectedProject} />
+
         <Testimonial />
         <FAQ />
         <Contact />
       </main>
+
+      <AnimatePresence>
+        {selectedProject && (
+          <CaseStudyModal
+            isOpen={!!selectedProject}
+            onClose={() => setSelectedProject(null)}
+            data={selectedProject}
+          />
+        )}
+      </AnimatePresence>
     </div>
+
   );
 };
 
