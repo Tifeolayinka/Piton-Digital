@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight } from 'lucide-react';
-import { projects } from '../src/data/projects';
-import { CaseStudyData } from './CaseStudyModal';
+import { heroProjects } from '../src/data/heroProjects';
 
-interface HeroScrollProps {
-  onProjectClick: (data: CaseStudyData) => void;
-}
-
-const HeroScroll: React.FC<HeroScrollProps> = ({ onProjectClick }) => {
+const HeroScroll: React.FC = () => {
   const [pause, setPause] = useState(false);
 
   // Add inline style for the keyframes
@@ -37,11 +30,10 @@ const HeroScroll: React.FC<HeroScrollProps> = ({ onProjectClick }) => {
               width: "max-content"
             }}
           >
-            {[...projects, ...projects, ...projects, ...projects].map((p, i) => (
+            {[...heroProjects, ...heroProjects, ...heroProjects, ...heroProjects].map((p, i) => (
               <div
                 key={i}
-                onClick={() => p.caseStudy && onProjectClick(p.caseStudy)}
-                className={`relative group w-[320px] aspect-[4/3] overflow-hidden bg-zinc-100 transition-all duration-500 rounded-lg border border-zinc-100 hover:border-piton-accent/50 ${p.caseStudy ? 'cursor-pointer' : 'cursor-default'}`}
+                className="relative group w-[320px] aspect-[4/3] overflow-hidden bg-zinc-100 transition-all duration-500 rounded-lg border border-zinc-100 hover:border-piton-accent/50 cursor-default"
               >
                 <img src={p.image} alt={p.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
 
@@ -51,14 +43,6 @@ const HeroScroll: React.FC<HeroScrollProps> = ({ onProjectClick }) => {
                     <h4 className="text-white font-display font-bold text-xl">{p.title}</h4>
                     <p className="text-white/70 text-[10px] font-mono uppercase tracking-wider">{p.type} • $2M+ Generated</p>
                   </div>
-
-                  {/* Hover Reveal: View Case Study */}
-                  {p.caseStudy && (
-                    <div className="absolute bottom-4 left-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 flex items-center gap-2">
-                      <span className="text-piton-accent text-[10px] font-bold uppercase tracking-widest">View Case Study</span>
-                      <ArrowUpRight className="w-3 h-3 text-piton-accent" />
-                    </div>
-                  )}
                 </div>
               </div>
             ))}

@@ -69,7 +69,7 @@ const App: React.FC = () => {
 
         {/* Scrolling Works Marquee replacing the Vibe Console */}
         <div className="relative z-20 -mt-10 mb-20 w-full overflow-hidden">
-          <HeroScroll onProjectClick={setSelectedProject} />
+          <HeroScroll />
         </div>
 
 

@@ -102,7 +102,7 @@ export const projects: Project[] = [
         }
     },
     {
-        title: "CarsAncestry",
+        title: "The Drivory",
         tags: ["SOCIAL MEDIA", "WEB", "MOBILE"],
         type: "Social App",
         image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop",
@@ -145,14 +145,14 @@ export const projects: Project[] = [
         }
     },
     {
-        title: "Piton Analytics",
+        title: "Recrewer",
         tags: ["SAAS", "DATA", "AI"],
         type: "Data Platform",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop",
         hoverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
         color: "bg-white",
         caseStudy: {
-            title: "Piton Analytics",
+            title: "Recrewer",
             headline: "VISUALIZING COMPLEX FINANCIAL DATA WITH PRECISION",
             services: ["DATA VIZ", "FULL STACK"],
             tools: ["REACT", "D3.JS", "NODE.JS"],

@@ -35,7 +35,7 @@ const Services: React.FC = () => {
                             desc="For teams that have dev resources but need world-class interface design. We deliver production-ready Figma files."
                             tags={['Product Design', 'Design Systems', 'Prototyping']}
                             icon={<Figma className="w-6 h-6" />}
-                            price="$2,500"
+                            price="$1,500"
                         />
                     </Reveal>
 
@@ -47,7 +47,7 @@ const Services: React.FC = () => {
                             desc="For founders who have designs ready. We turn your Figma files into pixel-perfect, scalable software using Bubble or Webflow."
                             tags={['Webflow', 'Bubble', 'React', 'Flutter']}
                             icon={<Code className="w-6 h-6" />}
-                            price="$4,000"
+                            price="$2,500"
                         />
                     </Reveal>
 
@@ -59,7 +59,7 @@ const Services: React.FC = () => {
                             desc="From zero to launched. We handle strategy, design, and development for MVPs, SaaS platforms, and mobile apps."
                             tags={['Strategy', 'Product Design', 'Development']}
                             icon={<Smartphone className="w-6 h-6" />}
-                            price="$7,500"
+                            price="$4,500"
                         />
                     </Reveal>
 

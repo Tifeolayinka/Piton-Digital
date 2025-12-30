@@ -172,7 +172,7 @@ const Hero: React.FC = () => {
             className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 grayscale"
           >
             {/* Simple Logos */}
-            {['base', 'AtLas', 'Shape', 'Graphite', 'Imagine AI'].map((logo, i) => (
+            {['Shipfast', 'Trailhead', 'Quadrian 360', 'Dojohub', 'Imagine AI'].map((logo, i) => (
               <div key={i} className="flex items-center gap-1 font-bold text-lg text-black">
                 <div className="w-4 h-4 bg-black rounded-full" />
                 {logo}
