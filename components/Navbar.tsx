@@ -22,16 +22,19 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-zinc-100 py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center gap-1 cursor-pointer group">
-          <span className="text-2xl font-display font-bold tracking-tighter text-piton-black">piton</span>
+        <div className="flex items-center gap-1 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <img
+            src="https://piton-digital.s3.eu-north-1.amazonaws.com/Jpg-01+(3)+1.png"
+            alt="Piton Digital"
+            className="h-8 md:h-10 w-auto object-contain"
+          />
         </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className="text-sm font-sans font-medium text-piton-secondary hover:text-piton-black transition-colors"
             >
@@ -39,8 +42,8 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           <a href="#contact" className="ml-4 px-6 py-3 bg-piton-black text-white rounded-full font-medium text-sm hover:bg-zinc-800 transition-colors flex items-center gap-2">
-             <span>Get Started</span>
-             <span className="text-[10px] bg-zinc-800 px-1.5 rounded border border-zinc-700">Book Strategy</span>
+            <span>Get Started</span>
+            <span className="text-[10px] bg-zinc-800 px-1.5 rounded border border-zinc-700">Book Strategy</span>
           </a>
         </div>
 
@@ -64,28 +67,28 @@ const Navbar: React.FC = () => {
           >
             <div className="flex flex-col p-8 gap-6 items-center text-center">
               {navLinks.map((link, index) => (
-                <motion.a 
+                <motion.a
                   key={link.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
-                  href={link.href} 
+                  href={link.href}
                   className="text-piton-black hover:text-piton-accent font-display text-2xl font-bold"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </motion.a>
               ))}
-               <motion.a 
-                 initial={{ opacity: 0, y: 20 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ delay: 0.5 }}
-                 href="#contact" 
-                 className="mt-4 px-8 py-4 bg-piton-black text-white rounded-full font-bold text-sm w-full"
-                 onClick={() => setIsOpen(false)}
-               >
-               Book an intro call
-            </motion.a>
+              <motion.a
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                href="#contact"
+                className="mt-4 px-8 py-4 bg-piton-black text-white rounded-full font-bold text-sm w-full"
+                onClick={() => setIsOpen(false)}
+              >
+                Book an intro call
+              </motion.a>
             </div>
           </motion.div>
         )}

@@ -6,6 +6,7 @@ import { CaseStudyData } from './CaseStudyModal';
 
 interface ProjectCardProps {
   title: string;
+  headline?: string;
   tags: string[];
   image: string;
   color: string;
@@ -15,43 +16,27 @@ interface ProjectCardProps {
   hoverImage?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, image, onClick, hasCaseStudy, index, hoverImage }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, headline, tags, image, onClick, hasCaseStudy, index, hoverImage }) => {
   return (
     <div
       onClick={onClick}
       className={`min-w-[80vw] md:min-w-[600px] lg:min-w-[800px] h-[70vh] relative group mx-4 md:mx-8 ${hasCaseStudy ? 'cursor-pointer' : ''}`}
     >
       {/* Image Container */}
-      <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex">
+      <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex border border-zinc-100/10">
         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10 pointer-events-none" />
 
-        {/* Left Image (Main) */}
-        <div className={`relative h-full overflow-hidden transition-all duration-700 ease-in-out ${hoverImage ? 'w-1/2 group-hover:w-0' : 'w-full'}`}>
+        <div className="relative h-full overflow-hidden w-full">
           <motion.img
             src={image}
             alt={title}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
             initial={{ scale: 1.1 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5 }}
           />
         </div>
-
-        {/* Right Image (Hover) */}
-        {hoverImage && (
-          <div className="relative h-full overflow-hidden w-1/2 group-hover:w-full transition-all duration-700 ease-in-out">
-            <motion.img
-              src={hoverImage}
-              alt={`${title} Preview`}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1.1 }}
-              whileInView={{ scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5 }}
-            />
-          </div>
-        )}
 
         {/* Content Overlay */}
         <div className="absolute inset-0 z-20 p-8 md:p-12 flex flex-col justify-between text-white">
@@ -67,11 +52,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, tags, image, onClick, 
           </div>
 
           <div>
-            <h3 className="text-5xl md:text-7xl font-display font-bold leading-[0.9] tracking-tighter mb-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <h3 className="text-5xl md:text-7xl font-display font-bold leading-[0.9] tracking-tighter mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
               {title.split(' ').map((word, i) => (
                 <span key={i} className="block">{word}</span>
               ))}
             </h3>
+
+            {headline && (
+              <p className="text-sm md:text-base font-mono uppercase tracking-widest opacity-0 group-hover:opacity-70 transition-all duration-500 delay-75 mb-6 translate-y-4 group-hover:translate-y-0">
+                {headline}
+              </p>
+            )}
 
             {hasCaseStudy && (
               <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
@@ -143,6 +134,7 @@ const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
                 key={i}
                 index={i}
                 {...project}
+                headline={project.caseStudy?.headline}
                 onClick={() => project.caseStudy && onProjectClick(project.caseStudy)}
                 hasCaseStudy={!!project.caseStudy}
               />
@@ -184,28 +176,16 @@ const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
                 className={`relative h-[60vh] rounded-2xl overflow-hidden ${project.caseStudy ? 'cursor-pointer' : ''} group`}
               >
                 {/* Image Container */}
-                <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex">
+                <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex border border-zinc-100/10">
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10 pointer-events-none" />
 
-                  {/* Left Image (Main) */}
-                  <div className={`relative h-full overflow-hidden transition-all duration-700 ease-in-out ${project.hoverImage ? 'w-1/2 group-hover:w-0' : 'w-full'}`}>
+                  <div className="relative h-full overflow-hidden w-full">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                   </div>
-
-                  {/* Right Image (Hover) */}
-                  {project.hoverImage && (
-                    <div className="relative h-full overflow-hidden w-1/2 group-hover:w-full transition-all duration-700 ease-in-out">
-                      <img
-                        src={project.hoverImage}
-                        alt={`${project.title} Preview`}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  )}
 
                   {/* Content Overlay */}
                   <div className="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
@@ -221,11 +201,17 @@ const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
                     </div>
 
                     <div>
-                      <h3 className="text-4xl font-display font-bold leading-[0.9] tracking-tighter mb-4">
+                      <h3 className="text-4xl font-display font-bold leading-[0.9] tracking-tighter mb-2">
                         {project.title.split(' ').map((word, idx) => (
                           <span key={idx} className="block">{word}</span>
                         ))}
                       </h3>
+
+                      {project.caseStudy?.headline && (
+                        <p className="text-[10px] font-mono uppercase tracking-widest opacity-70 mb-4">
+                          {project.caseStudy.headline}
+                        </p>
+                      )}
 
                       {project.caseStudy && (
                         <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">

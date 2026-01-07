@@ -21,7 +21,8 @@ export interface CaseStudyData {
     avatar: string;
   };
   result: string;
-  galleryImages?: string[];
+  galleryImages?: { url: string; caption?: string }[];
+  liveUrl?: string;
 }
 
 interface CaseStudyModalProps {
@@ -160,6 +161,23 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                       ))}
                     </div>
                   </motion.div>
+
+                  {/* Live Site Button */}
+                  {data.liveUrl && (
+                    <motion.a
+                      href={data.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.3 }}
+                      className="block w-full py-4 bg-piton-black text-white text-center rounded-xl font-medium hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 group"
+                    >
+                      <span>Visit Live Site</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </motion.a>
+                  )}
                 </div>
               </div>
 
@@ -183,25 +201,47 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                 </section>
 
                 {/* Gallery Grid 1 */}
-                {data.galleryImages && (
+                {data.galleryImages && data.galleryImages.length > 0 && (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100"
-                    >
-                      <img src={data.galleryImages[0]} alt="Gallery 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.1 }}
-                      className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100 md:mt-20"
-                    >
-                      <img src={data.galleryImages[1]} alt="Gallery 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
-                    </motion.div>
+                    {data.galleryImages[0] && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                        viewport={{ once: true }}
+                        className="group cursor-pointer"
+                      >
+                        <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100 shadow-sm border border-zinc-200 group-hover:shadow-xl transition-all duration-500">
+                          <img src={data.galleryImages[0].url} alt={data.galleryImages[0].caption || "Gallery 1"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                        {data.galleryImages[0].caption && (
+                          <div className="mt-3 flex items-center gap-2">
+                            <div className="h-px w-6 bg-zinc-300 group-hover:w-12 group-hover:bg-piton-accent transition-all duration-300" />
+                            <p className="text-xs font-mono uppercase tracking-widest text-zinc-500 group-hover:text-piton-black transition-colors">{data.galleryImages[0].caption}</p>
+                          </div>
+                        )}
+                      </motion.div>
+                    )}
+                    {data.galleryImages[1] && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        whileHover={{ y: -5, transition: { duration: 0.3 } }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="group md:mt-20 cursor-pointer"
+                      >
+                        <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-zinc-100 shadow-sm border border-zinc-200 group-hover:shadow-xl transition-all duration-500">
+                          <img src={data.galleryImages[1].url} alt={data.galleryImages[1].caption || "Gallery 2"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                        </div>
+                        {data.galleryImages[1].caption && (
+                          <div className="mt-3 flex items-center gap-2">
+                            <div className="h-px w-6 bg-zinc-300 group-hover:w-12 group-hover:bg-piton-accent transition-all duration-300" />
+                            <p className="text-xs font-mono uppercase tracking-widest text-zinc-500 group-hover:text-piton-black transition-colors">{data.galleryImages[1].caption}</p>
+                          </div>
+                        )}
+                      </motion.div>
+                    )}
                   </div>
                 )}
 
@@ -218,10 +258,19 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
+                    whileHover={{ scale: 1.02, transition: { duration: 0.4 } }}
                     viewport={{ once: true }}
-                    className="aspect-video rounded-3xl overflow-hidden bg-zinc-100"
+                    className="group cursor-pointer"
                   >
-                    <img src={data.galleryImages[2]} alt="Process" className="w-full h-full object-cover" />
+                    <div className="aspect-video rounded-3xl overflow-hidden bg-zinc-100 shadow-sm border border-zinc-200 group-hover:shadow-2xl transition-all duration-500">
+                      <img src={data.galleryImages[2].url} alt={data.galleryImages[2].caption || "Process"} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    </div>
+                    {data.galleryImages[2].caption && (
+                      <div className="mt-3 flex items-center gap-2">
+                        <div className="h-px w-6 bg-zinc-300 group-hover:w-12 group-hover:bg-piton-accent transition-all duration-300" />
+                        <p className="text-xs font-mono uppercase tracking-widest text-zinc-500 group-hover:text-piton-black transition-colors">{data.galleryImages[2].caption}</p>
+                      </div>
+                    )}
                   </motion.div>
                 )}
 
@@ -256,21 +305,38 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                   )}
                 </section>
 
-                {/* Remaining Gallery */}
+                {/* Vertical Gallery (Remaining Images) */}
                 {data.galleryImages && data.galleryImages.length > 3 && (
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    {data.galleryImages.slice(3).map((img, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        className="aspect-square rounded-xl overflow-hidden bg-zinc-100"
-                      >
-                        <img src={img} alt={`Gallery ${i}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
-                      </motion.div>
-                    ))}
-                  </div>
+                  <section className="space-y-16">
+                    <h2 className="text-3xl font-display font-bold mb-8">Extra Visuals</h2>
+                    <div className="space-y-20">
+                      {data.galleryImages.slice(3).map((item, i) => (
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, y: 40 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 0.6 }}
+                          className="group cursor-pointer"
+                        >
+                          <div className="rounded-2xl overflow-hidden bg-zinc-100 shadow-sm border border-zinc-200 group-hover:shadow-2xl transition-all duration-500">
+                            <img
+                              src={item.url}
+                              alt={item.caption || `Gallery Image ${i + 1}`}
+                              className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                          </div>
+                          {item.caption && (
+                            <div className="mt-4 flex items-center gap-3">
+                              <div className="h-px w-8 bg-zinc-300 group-hover:w-16 group-hover:bg-piton-accent transition-all duration-300" />
+                              <p className="text-sm font-mono uppercase tracking-widest text-zinc-500 group-hover:text-piton-black transition-colors">{item.caption}</p>
+                            </div>
+                          )}
+                        </motion.div>
+                      ))}
+                    </div>
+                  </section>
                 )}
 
                 <div className="flex justify-center pt-12 pb-20">

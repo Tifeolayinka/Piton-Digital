@@ -28,7 +28,7 @@ export const projects = [
         { label: "Cheaper than traditional code", value: "10X" }
       ],
       testimonial: {
-        quote: "This saved us. We were drowning in spreadsheets. Now I can grade students, collect payments, and track everything from one place.",
+        quote: "Working with Tife has been an excellent experience. He contributed to a few projects that demanded quick turnarounds and creative problem-solving. His strong design sense and attention to user experience made him an indispensable asset to our team.",
         author: "Chad D.",
         role: "Founder - Bali Family Find",
         company: "Bali FF",

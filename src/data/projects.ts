@@ -46,13 +46,17 @@ export const projects: Project[] = [
                 avatar: "https://randomuser.me/api/portraits/men/32.jpg"
             },
             result: "DojoHub dramatically simplified operations for martial arts schools, replacing scattered tools with one seamless platform. By automating class schedules, belt tracking, and recurring payments, we helped instructors reclaim hours of admin work each week. New dojos were able to fully onboard — including student setup, membership plans, and classes — in a fraction of the time it used to take.",
+            liveUrl: "https://dojohub.com",
             galleryImages: [
-                "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1599058945522-28d584b6f0ff?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1600&auto=format&fit=crop"
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Dojohub/714shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Dashboard Overview" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Dojohub/586shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Program Management" },
+                { url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop", caption: "Class Scheduling Interface" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Dojohub/543shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Student Information" },
+                { url: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=1600&auto=format&fit=crop", caption: "Attendance Tracking" },
+                { url: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1600&auto=format&fit=crop", caption: "Belt Promotion System" },
+                { url: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop", caption: "Billing & Payments" },
+                { url: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1600&auto=format&fit=crop", caption: "Instructor Portal" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Dojohub/638shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Membership Plans Management" }
             ]
         }
     },
@@ -91,13 +95,66 @@ export const projects: Project[] = [
                 avatar: "https://randomuser.me/api/portraits/men/32.jpg"
             },
             result: "A production-ready HR and payroll system that empowers companies to manage employees, approvals, and payroll with confidence. Oqool Core HR delivers flexible approval workflows, accurate payroll calculations, UAE public holiday handling, and export-ready reports — all built as a scalable no-code solution.",
+            liveUrl: "https://www.oqool.io/",
             galleryImages: [
-                "https://piton-digital.s3.eu-north-1.amazonaws.com/405shots_so.png?q=80&w=1600&auto=format&fit=crop",
-                "https://piton-digital.s3.eu-north-1.amazonaws.com/269shots_so.png?q=80&w=1600&auto=format&fit=crop",
-                "https://piton-digital.s3.eu-north-1.amazonaws.com/435shots_so.png?q=80&w=1600&auto=format&fit=crop",
-                "https://piton-digital.s3.eu-north-1.amazonaws.com/768shots_so.png?q=80&w=1600&auto=format&fit=crop",
-                "https://piton-digital.s3.eu-north-1.amazonaws.com/269shots_so.png?q=80&w=1600&auto=format&fit=crop",
-                "https://piton-digital.s3.eu-north-1.amazonaws.com/269shots_so.png?q=80&w=1600&auto=format&fit=crop"
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/405shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Employee Dashboard" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/269shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Employee Directory" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/435shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Employee Info Popup" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/768shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "AI Assistant" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Hr/506shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Custom Services" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/269shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Settings Configuration" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Hr/647shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Project Details" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Hr/249shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Project Management" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Hr/591shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Approval Workflow" }
+            ]
+        }
+    },
+    {
+        title: "Recrewer",
+        tags: ["SAAS", "TALENT PLATFORM", "MARKETPLACE"],
+        type: "Hiring & Talent Management",
+        image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1600&auto=format&fit=crop",
+        hoverImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/762shots_so.png?q=80&w=1600&auto=format&fit=crop",
+        color: "bg-white",
+        caseStudy: {
+            title: "Recrewer",
+            headline: "DESIGNING A STRUCTURED, TRUST-DRIVEN HIRING PLATFORM FOR MODERN TEAMS",
+            services: ["PRODUCT STRATEGY", "UX DESIGN", "SYSTEM DESIGN"],
+            tools: ["FIGMA", "AFFINDA", "DEEL", "ZOHO", "STRIPE"],
+            timeline: "Q3 2025",
+            mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/762shots_so.png?q=80&w=1600&auto=format&fit=crop",
+            intro: "Recrewer is a hiring and talent management platform built to help companies discover, interview, hire, and manage contractors in a structured and compliant way. The platform removes the chaos from freelance hiring by centralising discovery, communication, offers, contracts, onboarding, and payments — all while maintaining trust, transparency, and control for both employers and contractors.",
+            challenges: [
+                "Designing multiple user roles (Contractors, Employers, Admins) with clearly separated permissions and responsibilities.",
+                "Balancing a no-job-board hiring model while still enabling effective talent discovery and matching.",
+                "Creating an offer and contract flow that feels flexible yet legally structured.",
+                "Ensuring trust through verification, background checks, and controlled communication.",
+                "Reducing hiring friction without oversimplifying complex real-world workflows."
+            ],
+            process: "We approached Recrewer with a design-phase-first mindset. Through collaborative call sessions with the founder, we unpacked the full hiring lifecycle — from talent discovery to post-hire management. Using Figma, we mapped detailed user journeys across Employers and Contractors, breaking down interviews, offers, hiring decisions, onboarding, and contracts into clear, modular steps. Special focus was placed on system clarity: job-centric hiring, offer tracking, role-based dashboards, and trust signals like verification and availability. Every design decision was tested against one question — does this reduce uncertainty for the user?",
+            stats: [
+                { label: "Hiring Flow Coverage", value: "End-to-End" },
+                { label: "User Roles Designed", value: "3 Core Roles" },
+                { label: "Hiring Friction Reduced", value: "-60%" }
+            ],
+            testimonial: {
+                quote: "Working through the design phase together brought immediate clarity. The structure, flows, and decisions now reflect how hiring actually works in the real world.",
+                author: "Founder",
+                role: "Product & Operations",
+                company: "Recrewer",
+                avatar: "https://randomuser.me/api/portraits/men/45.jpg"
+            },
+            result: "A fully defined hiring platform design that translates complex recruitment processes into simple, intuitive workflows. Recrewer now has a clear system for talent discovery, interviews, offers, contracts, onboarding, and payments — all aligned around trust, clarity, and scalability. The design phase established a strong foundation for development, partnerships, and long-term growth.",
+            liveUrl: "https://recrewer.com",
+            galleryImages: [
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/115shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Talent Discovery & Matching" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/761shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Job Board" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/551shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Job details & Management" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/541shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Offer Creation Modal" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/443shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Contracts & Onboarding" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/762shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Employer Dashboard" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/246shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Interview Management" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/383shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Interview Rescheduling" }
             ]
         }
     },
@@ -136,119 +193,56 @@ export const projects: Project[] = [
             },
             result: "A fully functional social platform that empowers users to document their automotive journeys, connect through shared models and clubs, and build a digital legacy for every car they’ve owned.",
             galleryImages: [
-                "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1600&auto=format&fit=crop"
+                { url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop", caption: "Community Feed" },
+                { url: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop", caption: "Vehicle Profile" },
+                { url: "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1600&auto=format&fit=crop", caption: "Event Map" },
+                { url: "https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=1600&auto=format&fit=crop", caption: "Club Management" },
+                { url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1600&auto=format&fit=crop", caption: "User Settings" }
             ]
         }
     },
     {
-        title: "Recrewer",
-        tags: ["SAAS", "DATA", "AI"],
-        type: "Data Platform",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop",
-        hoverImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
+        title: "DemmyPay",
+        tags: ["FINTECH", "WEB", "MOBILE"],
+        type: "B2B & B2C Fintech Platform",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop",
+        hoverImage: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=1600&auto=format&fit=crop",
         color: "bg-white",
         caseStudy: {
-            title: "Recrewer",
-            headline: "VISUALIZING COMPLEX FINANCIAL DATA WITH PRECISION",
-            services: ["DATA VIZ", "FULL STACK"],
-            tools: ["REACT", "D3.JS", "NODE.JS"],
-            timeline: "4 MONTHS",
-            mainImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop",
-            intro: "Financial data is often dry and impenetrable. Piton Analytics sought to change that by creating a dashboard that makes market trends feel like a narrative story.",
-            challenges: [
-                "Rendering millions of data points without latency.",
-                "Making complex financial models accessible to non-experts.",
-                "Real-time data synchronization."
-            ],
-            process: "We utilized D3.js for custom visualization components, optimized with WebGL for performance. The design language borrows from high-end editorial print, using typography to guide the eye through the data.",
-            stats: [
-                { label: "Data Points Rendered", value: "1M+" },
-                { label: "Load Time", value: "<0.5s" },
-                { label: "Adoption Rate", value: "85%" }
-            ],
-            testimonial: {
-                quote: "Finally, a financial tool that doesn't look like a spreadsheet from 1995. It's beautiful and incredibly fast.",
-                author: "Elena R.",
-                role: "CFO",
-                company: "Vertex",
-                avatar: "https://randomuser.me/api/portraits/women/22.jpg"
-            },
-            result: "A best-in-class analytics platform that gives traders and CFOs a clear, real-time view of their financial landscape.",
-            galleryImages: [
-                "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1642543492481-44e81e3914a7?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1600&auto=format&fit=crop"
-            ]
-        }
-    },
-    {
-        title: "Apex Gear",
-        tags: ["E-COMMERCE", "SHOPIFY", "UX"],
-        type: "E-Commerce",
-        image: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop",
-        hoverImage: "https://images.unsplash.com/photo-1472851294608-4155f21180e9?q=80&w=1600&auto=format&fit=crop",
-        color: "bg-white",
-        caseStudy: {
-            title: "Apex Gear",
-            headline: "E-COMMERCE FOR THE MODERN ADVENTURER",
-            services: ["SHOPIFY", "BRANDING", "UX"],
-            tools: ["SHOPIFY PLUS", "LIQUID", "FIGMA"],
+            title: "DemmyPay",
+            headline: "POWERING AIRTIME & DATA PAYMENTS FOR BUSINESSES AND EVERYDAY NIGERIANS",
+            services: ["PRODUCT STRATEGY", "UX/UI DESIGN", "NO-CODE DEVELOPMENT"],
+            tools: ["BUBBLE", "FIGMA", "PAYSTACK"],
             timeline: "6 WEEKS",
-            mainImage: "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop",
-            intro: "Apex Gear sells high-performance climbing equipment. They needed a store that performed as well as their gear.",
+            mainImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop",
+            intro: "DemmyPay is a Nigerian B2B and B2C fintech platform that enables fast, secure, and reliable airtime and data transactions. The product serves everyday consumers as well as businesses and high-volume vendors through wallet-based payments, instant fulfillment, and reseller pricing. To date, DemmyPay has processed over $1B in transaction volume across consumer and business use cases.",
             challenges: [
-                "High cart abandonment rates.",
-                "Generic Shopify template feel.",
-                "Complex product variants."
+                "Designing a product that works equally well for individual consumers and business users with very different needs.",
+                "Building trust at scale in a market where users are cautious about digital payment platforms.",
+                "Clearly communicating speed, reliability, and business value within seconds of landing on the site."
             ],
-            process: "We built a headless Shopify storefront to give us complete control over the UX. We implemented a 3D product viewer and a simplified checkout flow.",
+            process: "We adopted a dual-audience, trust-first approach. In Figma, we designed a clean, modular interface that supports both consumer purchase flows and business dashboards without overlap or confusion. Using Bubble, we implemented wallet systems, transaction flows, vendor pricing logic, and business dashboards while maintaining high performance under large transaction volumes.",
             stats: [
-                { label: "Conversion Rate", value: "+2.5%" },
-                { label: "Mobile Sales", value: "+60%" },
-                { label: "ROI", value: "400%" }
+                { label: "Total Transaction Volume", value: "$1B+" },
+                { label: "Transactions Processed", value: "Millions+" },
+                { label: "Transaction Success Rate", value: "99.9%" }
             ],
             testimonial: {
-                quote: "Our sales doubled in the first month. The design perfectly captures the rugged yet technical nature of our products.",
-                author: "Tom H.",
-                role: "Founder",
-                company: "Apex",
-                avatar: "https://randomuser.me/api/portraits/men/12.jpg"
+                quote: "DemmyPay works perfectly for both my personal use and my data business. It’s fast, reliable, and easy to manage.",
+                author: "O. Adeyemi",
+                role: "Business User",
+                company: "DemmyPay",
+                avatar: "https://randomuser.me/api/portraits/men/45.jpg"
             },
-            result: "A flagship e-commerce experience that builds trust and drives sales.",
+            result: "A scalable B2B and B2C fintech platform that powers billions in airtime and data transactions, supports businesses with reliable vendor tools, and delivers a fast, trustworthy experience for everyday Nigerian consumers.",
             galleryImages: [
-                "https://images.unsplash.com/photo-1472851294608-4155f21180e9?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1502126324834-38f8e02d7160?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1601224748193-d36f0b3303d6?q=80&w=1600&auto=format&fit=crop",
-                "https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1600&auto=format&fit=crop"
+                { url: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=1600&auto=format&fit=crop", caption: "Landing Page & Audience Split Messaging" },
+                { url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1600&auto=format&fit=crop", caption: "Consumer Wallet & Transactions" },
+                { url: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?q=80&w=1600&auto=format&fit=crop", caption: "Airtime & Data Purchase Flow" },
+                { url: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1600&auto=format&fit=crop", caption: "Business & Vendor Dashboard" },
+                { url: "https://images.unsplash.com/photo-1556741533-f6acd647d2fb?q=80&w=1600&auto=format&fit=crop", caption: "Mobile Consumer Experience" }
             ]
         }
-    },
-    {
-        title: "The Drivory",
-        tags: ["SOCIAL", "AUTOMOTIVE", "APP"],
-        type: "Social Network App",
-        image: "https://piton-digital.s3.eu-north-1.amazonaws.com/93shots_so.png?q=80&w=1600&auto=format&fit=crop",
-        color: "bg-white",
-    },
-    {
-        title: "Tamashi LMS",
-        tags: ["EDTECH", "LMS", "WEB"],
-        type: "EdTech",
-        image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop",
-        color: "bg-white",
-    },
-    {
-        title: "Velvet Rope",
-        tags: ["SOCIAL", "PREMIUM", "APP"],
-        type: "Social App",
-        image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1600&auto=format&fit=crop",
-        color: "bg-white",
     }
-];
+
+]
