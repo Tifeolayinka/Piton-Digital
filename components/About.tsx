@@ -52,7 +52,7 @@ const About: React.FC = () => {
 
                             {/* Floating Element 1 */}
                             <motion.div
-                                animate={{ y: [0, -20, 0] }}
+                                animate={typeof window !== 'undefined' && window.innerWidth >= 768 ? { y: [0, -20, 0] } : {}}
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                                 className="absolute -bottom-6 md:bottom-4 lg:bottom-10 left-4 lg:left-0 w-[70%] lg:w-[50%] h-auto md:h-[30%] lg:h-[40%] bg-white border border-zinc-100 rounded-2xl shadow-xl p-6 lg:p-8 z-20 flex flex-col justify-between"
                             >

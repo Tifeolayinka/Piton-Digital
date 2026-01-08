@@ -9,10 +9,10 @@ interface RevealProps extends HTMLMotionProps<"div"> {
   yOffset?: number;
 }
 
-export const Reveal = ({ 
-  children, 
-  width = "fit-content", 
-  delay = 0.25, 
+export const Reveal = ({
+  children,
+  width = "fit-content",
+  delay = 0.25,
   duration = 0.5,
   yOffset = 75,
   className,
@@ -28,11 +28,14 @@ export const Reveal = ({
     }
   }, [isInView, mainControls]);
 
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const responsiveYOffset = isMobile ? Math.min(yOffset, 20) : yOffset;
+
   return (
     <div ref={ref} style={{ position: "relative", width, overflow: "hidden" }} className={className}>
       <motion.div
         variants={{
-          hidden: { opacity: 0, y: yOffset },
+          hidden: { opacity: 0, y: responsiveYOffset },
           visible: { opacity: 1, y: 0 },
         }}
         initial="hidden"

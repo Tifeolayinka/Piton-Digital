@@ -20,10 +20,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, headline, tags, onClic
   const [isHovered, setIsHovered] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Slideshow logic for hover state
+  // Slideshow logic for hover state - Only on desktop/hover devices
   useEffect(() => {
     let interval: NodeJS.Timeout;
-    if (isHovered && galleryImages && galleryImages.length > 0) {
+    const isHoverDevice = typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches;
+
+    if (isHovered && isHoverDevice && galleryImages && galleryImages.length > 0) {
       interval = setInterval(() => {
         setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
       }, 1500);

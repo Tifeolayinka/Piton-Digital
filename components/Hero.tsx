@@ -23,8 +23,10 @@ const Hero: React.FC = () => {
       className="relative pt-32 md:pt-40 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden bg-white selection:bg-piton-accent selection:text-white perspective-1000 min-h-[90vh] flex flex-col justify-center"
       onMouseMove={handleMouseMove}
     >
-      {/* Interactive Particles Background */}
-      <InteractiveParticles mousePosition={mousePos} />
+      {/* Interactive Particles Background - Desktop Only */}
+      <div className="hidden md:block">
+        <InteractiveParticles mousePosition={mousePos} />
+      </div>
 
       {/* Floating Icons */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
