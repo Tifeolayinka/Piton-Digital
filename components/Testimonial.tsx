@@ -6,11 +6,35 @@ import Reveal from './Reveal';
 export const VideoPlayer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  // Trigger when 20% of the video is visible to ensure it starts earlier
-  const isInView = useInView(containerRef, { amount: 0.2, once: true });
+  // Trigger every time the video enters the viewport
+  const isInView = useInView(containerRef, { amount: 0.5, once: false });
+
+  // Global interaction listener to "prime" audio
+  useEffect(() => {
+    const handleInteraction = () => {
+      setHasInteracted(true);
+      // Once we have an interaction, we can try to unmute if in view
+      if (isInView && videoRef.current) {
+        videoRef.current.muted = false;
+        setIsMuted(false);
+      }
+      // Remove listeners after first interaction
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+
+    window.addEventListener('click', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction);
+
+    return () => {
+      window.removeEventListener('click', handleInteraction);
+      window.removeEventListener('touchstart', handleInteraction);
+    };
+  }, [isInView]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -25,44 +49,39 @@ export const VideoPlayer = () => {
   const blur = useTransform(scrollYProgress, [0, 1], ["blur(8px)", "blur(0px)"]);
 
   useEffect(() => {
-    if (isInView && videoRef.current) {
-      // Strategy: Always start muted to guarantee playback (avoids "static" state)
-      videoRef.current.muted = true;
-      setIsMuted(true);
+    if (videoRef.current) {
+      if (isInView) {
+        const playPromise = videoRef.current.play();
 
-      const playPromise = videoRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise
+            .then(() => {
+              setIsPlaying(true);
 
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-
-            // Attempt to unmute safely
-            // We set a small timeout to let playback stabilize
-            setTimeout(() => {
-              if (videoRef.current) {
-                // Try to unmute
+              // If user has already interacted, we can unmute immediately
+              if (hasInteracted) {
                 videoRef.current.muted = false;
-
-                // Check if browser paused it immediately (policy block)
-                if (videoRef.current.paused) {
-                  console.log("Unmute blocked by browser, reverting to muted playback");
-                  videoRef.current.muted = true;
-                  setIsMuted(true);
-                  videoRef.current.play();
-                } else {
-                  setIsMuted(false);
-                }
+                setIsMuted(false);
+              } else {
+                // Otherwise stay muted to ensure playback continues
+                videoRef.current.muted = true;
+                setIsMuted(true);
               }
-            }, 100);
-          })
-          .catch((error) => {
-            console.log("Autoplay failed:", error);
-            setIsPlaying(false);
-          });
+            })
+            .catch((error) => {
+              console.log("Autoplay failed:", error);
+              setIsPlaying(false);
+            });
+        }
+      } else {
+        videoRef.current.pause();
+        setIsPlaying(false);
+        // Always mute when leaving view to be safe
+        videoRef.current.muted = true;
+        setIsMuted(true);
       }
     }
-  }, [isInView]);
+  }, [isInView, hasInteracted]);
 
   const toggleMute = () => {
     if (videoRef.current) {

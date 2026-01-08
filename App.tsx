@@ -19,7 +19,7 @@ import LoadingScreen from './components/LoadingScreen';
 import Admin from './src/pages/Admin';
 import CaseStudyModal, { CaseStudyData } from './components/CaseStudyModal';
 import StarterModule from './components/StarterModule';
-
+import Reveal from './components/Reveal';
 
 const NoiseOverlay = () => (
   <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay">
@@ -36,7 +36,6 @@ const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<CaseStudyData | null>(null);
-
 
   useEffect(() => {
     const checkHash = () => {
@@ -73,23 +72,55 @@ const App: React.FC = () => {
           <HeroScroll />
         </div>
 
-        <div className="py-20 bg-white">
-          <VideoPlayer />
-        </div>
+        <Reveal isSection={true} width="100%">
+          <div className="py-20 bg-white">
+            <VideoPlayer />
+          </div>
+        </Reveal>
 
+        <Reveal isSection={true} width="100%">
+          <Challenges />
+        </Reveal>
 
-        <Challenges />
-        <Services />
-        <Work onProjectClick={setSelectedProject} />
-        <Process />
-        <About />
-        <AboutMe />
-        <Metrics />
+        <Reveal isSection={true} width="100%">
+          <Services />
+        </Reveal>
 
-        <Testimonial showVideo={false} />
-        <StarterModule />
-        <FAQ />
-        <Contact />
+        <Reveal isSection={true} width="100%">
+          <Work onProjectClick={setSelectedProject} />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <Process />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <About />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <AboutMe />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <Metrics />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <Testimonial showVideo={false} />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <StarterModule />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <FAQ />
+        </Reveal>
+
+        <Reveal isSection={true} width="100%">
+          <Contact />
+        </Reveal>
       </main>
 
       <AnimatePresence>
@@ -102,7 +133,6 @@ const App: React.FC = () => {
         )}
       </AnimatePresence>
     </div>
-
   );
 };
 

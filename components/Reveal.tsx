@@ -7,6 +7,7 @@ interface RevealProps extends HTMLMotionProps<"div"> {
   delay?: number;
   duration?: number;
   yOffset?: number;
+  isSection?: boolean;
 }
 
 export const Reveal = ({
@@ -15,6 +16,7 @@ export const Reveal = ({
   delay = 0.25,
   duration = 0.5,
   yOffset = 75,
+  isSection = false,
   className,
   ...props
 }: RevealProps) => {
@@ -38,7 +40,7 @@ export const Reveal = ({
           hidden: { opacity: 0, y: responsiveYOffset },
           visible: { opacity: 1, y: 0 },
         }}
-        initial="hidden"
+        initial={isMobile && !isSection ? "visible" : "hidden"}
         animate={mainControls}
         transition={{ duration, delay }}
         {...props}
