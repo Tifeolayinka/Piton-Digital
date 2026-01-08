@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, Volume2, VolumeX, Play, Pause } from 'lucide
 import { motion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import Reveal from './Reveal';
 
-const VideoPlayer = () => {
+export const VideoPlayer = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isMuted, setIsMuted] = useState(true);
@@ -189,7 +189,11 @@ const testimonials: TestimonialData[] = [
   }
 ];
 
-const Testimonial: React.FC = () => {
+interface TestimonialProps {
+  showVideo?: boolean;
+}
+
+const Testimonial: React.FC<TestimonialProps> = ({ showVideo = true }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
@@ -232,9 +236,11 @@ const Testimonial: React.FC = () => {
           <p className="text-zinc-400 text-sm mb-12">We don't just build products. We build partnerships that generate<br />measurable growth for years to come.</p>
         </Reveal>
 
-        <Reveal delay={0.2} width="100%">
-          <VideoPlayer />
-        </Reveal>
+        {showVideo && (
+          <Reveal delay={0.2} width="100%">
+            <VideoPlayer />
+          </Reveal>
+        )}
 
         <div className="relative min-h-[320px]">
           <AnimatePresence initial={false} custom={direction} mode="wait">

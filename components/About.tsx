@@ -5,9 +5,9 @@ import { CheckCircle2 } from 'lucide-react';
 
 const About: React.FC = () => {
     return (
-        <section id="about" className="py-32 bg-white overflow-hidden">
+        <section id="about" className="py-20 md:py-32 bg-white overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left Column - Text */}
                     <div>
                         <Reveal width="100%">
@@ -43,7 +43,7 @@ const About: React.FC = () => {
                     </div>
 
                     {/* Right Column - Visuals */}
-                    <div className="relative h-[500px] lg:h-[600px] w-full block mt-12 lg:mt-0">
+                    <div className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full block mt-8 lg:mt-0">
                         <Reveal delay={0.3} className="h-full w-full">
                             {/* Main Image */}
                             <div className="absolute top-0 right-0 w-full lg:w-[80%] h-full lg:h-[85%] bg-zinc-100 rounded-2xl overflow-hidden shadow-2xl z-10">

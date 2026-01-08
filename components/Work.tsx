@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { motion, useTransform, useScroll } from 'framer-motion';
+import React, { useState, useMemo, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { projects } from '../src/data/projects';
 import { CaseStudyData } from './CaseStudyModal';
@@ -8,72 +8,112 @@ interface ProjectCardProps {
   title: string;
   headline?: string;
   tags: string[];
-  image: string;
   color: string;
   onClick?: () => void;
   hasCaseStudy: boolean;
   index: number;
-  hoverImage?: string;
+  mainImage?: string;
+  galleryImages?: { url: string; caption: string }[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ title, headline, tags, image, onClick, hasCaseStudy, index, hoverImage }) => {
-  return (
-    <div
-      onClick={onClick}
-      className={`min-w-[80vw] md:min-w-[600px] lg:min-w-[800px] h-[70vh] relative group mx-4 md:mx-8 ${hasCaseStudy ? 'cursor-pointer' : ''}`}
-    >
-      {/* Image Container */}
-      <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex border border-zinc-100/10">
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10 pointer-events-none" />
+const ProjectCard: React.FC<ProjectCardProps> = ({ title, headline, tags, onClick, hasCaseStudy, index, mainImage, galleryImages }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-        <div className="relative h-full overflow-hidden w-full">
-          <motion.img
-            src={image}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            initial={{ scale: 1.1 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.5 }}
-          />
+  // Slideshow logic for hover state
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (isHovered && galleryImages && galleryImages.length > 0) {
+      interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % galleryImages.length);
+      }, 1500);
+    } else {
+      setCurrentSlide(0);
+    }
+    return () => clearInterval(interval);
+  }, [isHovered, galleryImages]);
+
+  return (
+    <motion.div
+      layout
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.4 }}
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative group overflow-hidden rounded-2xl bg-zinc-900 border border-zinc-100/10 ${hasCaseStudy ? 'cursor-pointer' : ''}`}
+    >
+      {/* Container with 4:3 Aspect Ratio */}
+      <div className="aspect-[4/3] relative overflow-hidden">
+
+        {/* Project Visuals (Full Size) */}
+        <div className="absolute inset-0 w-full h-full">
+          <AnimatePresence mode="wait">
+            {!isHovered || !galleryImages || galleryImages.length === 0 ? (
+              <motion.img
+                key="main"
+                src={mainImage}
+                alt={title}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : (
+              <motion.img
+                key={currentSlide}
+                src={galleryImages[currentSlide].url}
+                alt={galleryImages[currentSlide].caption}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.5 }}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            )}
+          </AnimatePresence>
         </div>
 
-        {/* Content Overlay */}
-        <div className="absolute inset-0 z-20 p-8 md:p-12 flex flex-col justify-between text-white">
+        {/* Dark Gradient Overlay for Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-10" />
+
+        {/* Content Overlay - Always Visible */}
+        <div className="absolute inset-0 z-20 p-6 md:p-10 flex flex-col justify-between text-white pointer-events-none">
           <div className="flex justify-between items-start">
-            <span className="text-xs font-mono uppercase tracking-widest opacity-70">0{index + 1}</span>
+            <span className="text-[10px] font-mono uppercase tracking-widest opacity-50">0{index + 1}</span>
             <div className="flex gap-2">
-              {tags.map((tag, i) => (
-                <span key={i} className="px-2 py-1 border border-white/20 text-[10px] font-mono uppercase tracking-wider backdrop-blur-sm">
+              {tags.slice(0, 2).map((tag, i) => (
+                <span key={i} className="px-2 py-1 border border-white/20 text-[8px] font-mono uppercase tracking-wider backdrop-blur-md bg-white/5">
                   {tag}
                 </span>
               ))}
             </div>
           </div>
 
-          <div>
-            <h3 className="text-5xl md:text-7xl font-display font-bold leading-[0.9] tracking-tighter mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-              {title.split(' ').map((word, i) => (
-                <span key={i} className="block">{word}</span>
-              ))}
+          <div className="max-w-md">
+            <h3 className="text-2xl md:text-3xl font-display font-bold leading-tight mb-2">
+              {title}
             </h3>
 
             {headline && (
-              <p className="text-sm md:text-base font-mono uppercase tracking-widest opacity-0 group-hover:opacity-70 transition-all duration-500 delay-75 mb-6 translate-y-4 group-hover:translate-y-0">
+              <p className="text-[10px] md:text-xs font-mono uppercase tracking-widest opacity-70 leading-relaxed mb-4">
                 {headline}
               </p>
             )}
 
             {hasCaseStudy && (
-              <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                <span className="text-sm font-mono uppercase tracking-wider">View Case Study</span>
-                <ArrowRight className="w-4 h-4" />
+              <div className="flex items-center gap-2 text-white group-hover:text-white transition-colors duration-300">
+                <span className="text-[10px] font-mono uppercase tracking-wider font-bold">View Case Study</span>
+                <ArrowRight className="w-3 h-3" />
               </div>
             )}
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -82,152 +122,92 @@ interface WorkProps {
 }
 
 const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
+  const [activeFilter, setActiveFilter] = useState('All');
 
-  // Transform vertical scroll progress into horizontal movement
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-85%"]);
+  const filters = ['All', 'Strategy', 'UI/UX Design', 'No-code Development'];
 
-  // Use the first 5 projects for the main work section
-  const displayProjects = projects.slice(0, 5);
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === 'All') return projects;
+
+    return projects.filter(project => {
+      const services = project.caseStudy?.services || [];
+      const normalizedServices = services.map(s => s.toUpperCase());
+
+      if (activeFilter === 'Strategy') {
+        return normalizedServices.includes('PRODUCT STRATEGY');
+      }
+      if (activeFilter === 'UI/UX Design') {
+        return normalizedServices.some(s => s.includes('UI') || s.includes('UX'));
+      }
+      if (activeFilter === 'No-code Development') {
+        return normalizedServices.some(s => s.includes('DEVELOPMENT'));
+      }
+      return false;
+    });
+  }, [activeFilter]);
 
   return (
-    <>
-      {/* Desktop: Horizontal Scroll */}
-      <section id="work" ref={targetRef} className="relative h-[300vh] bg-[#FDFDFD] hidden md:block">
-        {/* Sticky Container */}
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-
-          <div className="absolute top-10 left-10 z-10 flex items-center gap-4">
-            <span className="w-3 h-3 bg-piton-accent rounded-full animate-pulse"></span>
-            <span className="text-sm font-mono uppercase tracking-widest">Selected Expeditions</span>
+    <section id="work" className="py-32 bg-[#FDFDFD]">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-3 h-3 bg-piton-accent rounded-full animate-pulse"></span>
+              <span className="text-sm font-mono uppercase tracking-widest">Selected Expeditions</span>
+            </div>
+            <h2 className="text-6xl md:text-8xl font-display font-bold text-piton-black leading-[0.85] tracking-tighter">
+              PROVEN<br />RESULTS
+            </h2>
           </div>
 
-          {/* Horizontal Scroll Content */}
-          <motion.div style={{ x }} className="flex gap-0 px-4 md:px-20 items-center relative z-10">
-
-            {/* Intro / Title Slide */}
-            <div className="min-w-[50vw] md:min-w-[40vw] pr-20 pl-10">
-              <motion.h2
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-[10vw] font-display font-bold text-piton-black leading-[0.85] tracking-tighter mb-12"
+          {/* Filter Bar */}
+          <div className="flex flex-wrap gap-2 md:gap-4 border-b border-zinc-100 pb-4 lg:pb-0 lg:border-none">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-4 py-2 text-[10px] md:text-xs font-mono uppercase tracking-widest transition-all duration-300 rounded-full ${activeFilter === filter
+                  ? 'bg-piton-black text-white'
+                  : 'text-zinc-400 hover:text-piton-black hover:bg-zinc-100'
+                  }`}
               >
-                PROVEN<br />RESULTS
-              </motion.h2>
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="flex items-center gap-4 text-xs font-mono uppercase tracking-widest text-zinc-400"
-              >
-                <ArrowRight className="w-4 h-4 text-piton-accent" />
-                <span>See What's Possible</span>
-              </motion.div>
-            </div>
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
 
-            {displayProjects.map((project, i) => (
+        {/* Grid Layout */}
+        <motion.div
+          layout
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
+        >
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, i) => (
               <ProjectCard
-                key={i}
+                key={project.title}
                 index={i}
                 {...project}
                 headline={project.caseStudy?.headline}
+                mainImage={project.caseStudy?.mainImage}
+                galleryImages={project.caseStudy?.galleryImages}
                 onClick={() => project.caseStudy && onProjectClick(project.caseStudy)}
                 hasCaseStudy={!!project.caseStudy}
               />
             ))}
+          </AnimatePresence>
+        </motion.div>
 
-            {/* End Card */}
-            <div className="min-w-[400px] flex items-center justify-center pl-20">
-              <a href="#contact" className="group flex items-center gap-4 text-4xl font-display font-bold text-piton-black hover:text-piton-accent transition-colors">
-                <span>View All Projects</span>
-                <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
-              </a>
-            </div>
-          </motion.div>
+        {/* Footer Link */}
+        <div className="mt-24 flex justify-center">
+          <a href="#contact" className="group flex items-center gap-4 text-2xl md:text-3xl font-display font-bold text-piton-black hover:text-piton-accent transition-colors">
+            <span>Have a project in mind?</span>
+            <ArrowRight className="w-6 h-6 md:w-8 h-8 group-hover:translate-x-2 transition-transform" />
+          </a>
         </div>
-      </section>
-
-      {/* Mobile: Vertical List */}
-      <section id="work-mobile" className="py-24 bg-[#FDFDFD] md:hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="mb-12">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-3 h-3 bg-piton-accent rounded-full animate-pulse"></span>
-              <span className="text-xs font-mono uppercase tracking-widest">Selected Expeditions</span>
-            </div>
-            <h2 className="text-5xl font-display font-bold text-piton-black leading-[0.9] tracking-tighter mb-4">
-              PROVEN<br />RESULTS
-            </h2>
-            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-zinc-400">
-              <ArrowRight className="w-4 h-4 text-piton-accent" />
-              <span>See What's Possible</span>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            {displayProjects.map((project, i) => (
-              <div
-                key={i}
-                onClick={() => project.caseStudy && onProjectClick(project.caseStudy)}
-                className={`relative h-[60vh] rounded-2xl overflow-hidden ${project.caseStudy ? 'cursor-pointer' : ''} group`}
-              >
-                {/* Image Container */}
-                <div className="w-full h-full relative overflow-hidden bg-zinc-900 flex border border-zinc-100/10">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500 z-10 pointer-events-none" />
-
-                  <div className="relative h-full overflow-hidden w-full">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-
-                  {/* Content Overlay */}
-                  <div className="absolute inset-0 z-20 p-6 flex flex-col justify-between text-white">
-                    <div className="flex justify-between items-start">
-                      <span className="text-xs font-mono uppercase tracking-widest opacity-70">0{i + 1}</span>
-                      <div className="flex gap-2 flex-wrap">
-                        {project.tags.map((tag, idx) => (
-                          <span key={idx} className="px-2 py-1 border border-white/20 text-[10px] font-mono uppercase tracking-wider backdrop-blur-sm">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div>
-                      <h3 className="text-4xl font-display font-bold leading-[0.9] tracking-tighter mb-2">
-                        {project.title.split(' ').map((word, idx) => (
-                          <span key={idx} className="block">{word}</span>
-                        ))}
-                      </h3>
-
-                      {project.caseStudy?.headline && (
-                        <p className="text-[10px] font-mono uppercase tracking-widest opacity-70 mb-4">
-                          {project.caseStudy.headline}
-                        </p>
-                      )}
-
-                      {project.caseStudy && (
-                        <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                          <span className="text-sm font-mono uppercase tracking-wider">View Case Study</span>
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

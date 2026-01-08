@@ -10,7 +10,7 @@ import About from './components/About';
 import AboutMe from './components/AboutMe';
 import Metrics from './components/Metrics';
 import Work from './components/Work';
-import Testimonial from './components/Testimonial';
+import Testimonial, { VideoPlayer } from './components/Testimonial';
 import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import ClimbingLine from './components/ClimbingLine';
@@ -73,16 +73,20 @@ const App: React.FC = () => {
           <HeroScroll />
         </div>
 
+        <div className="py-20 bg-white">
+          <VideoPlayer />
+        </div>
+
 
         <Challenges />
         <Services />
+        <Work onProjectClick={setSelectedProject} />
         <Process />
         <About />
         <AboutMe />
         <Metrics />
-        <Work onProjectClick={setSelectedProject} />
 
-        <Testimonial />
+        <Testimonial showVideo={false} />
         <StarterModule />
         <FAQ />
         <Contact />

@@ -24,7 +24,7 @@ export const projects: Project[] = [
             services: ["UI/UX", "DEVELOPMENT"],
             tools: ["FIGMA", "BUBBLE", "CUSTOM WEBAPP", "MOBILE APP"],
             timeline: "3 MONTHS",
-            mainImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop",
+            mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/Dojohub+main.png?q=80&w=1600&auto=format&fit=crop",
             intro: "DojoHub was built to help martial arts schools streamline operations and scale with ease. From belt tracking to recurring payments, it provides everything a modern dojo needs — with a beautiful admin dashboard for staff and a convenient mobile app for students and parents. Whether it’s signing up for a membership, booking a class, or tracking belt progress, DojoHub combines the flexibility of no-code development with a deep understanding of martial arts school workflows.",
             challenges: [
                 "Dojo owners were spending excessive time managing class schedules, attendance, and belt/rank progress manually.",
@@ -73,7 +73,7 @@ export const projects: Project[] = [
             services: ["PRODUCT STRATEGY", "UX DESIGN", "NO-CODE DEVELOPMENT"],
             tools: ["BUBBLE", "FIGMA", "CHART.JS"],
             timeline: "4 MONTHS",
-            mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/405shots_so.png?q=80&w=1600&auto=format&fit=crop",
+            mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Main+image.png?q=80&w=1600&auto=format&fit=crop",
             intro: "Oqool Core HR is a comprehensive HR and payroll platform designed to help companies manage employees, attendance, approvals, and payroll with clarity and control. We designed and built a flexible internal system that supports company-wide defaults, employee-specific rules, and multi-level approval workflows — all while staying compliant with UAE labour practices.",
             challenges: [
                 "Designing a flexible approval workflow system that adapts to different company structures without overcomplication.",
@@ -120,7 +120,7 @@ export const projects: Project[] = [
             title: "Recrewer",
             headline: "DESIGNING A STRUCTURED, TRUST-DRIVEN HIRING PLATFORM FOR MODERN TEAMS",
             services: ["PRODUCT STRATEGY", "UX DESIGN", "SYSTEM DESIGN"],
-            tools: ["FIGMA", "AFFINDA", "DEEL", "ZOHO", "STRIPE"],
+            tools: ["FIGMA", "FIGJAM", "GOOGLE SHEET"],
             timeline: "Q3 2025",
             mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Recrewer/762shots_so.png?q=80&w=1600&auto=format&fit=crop",
             intro: "Recrewer is a hiring and talent management platform built to help companies discover, interview, hire, and manage contractors in a structured and compliant way. The platform removes the chaos from freelance hiring by centralising discovery, communication, offers, contracts, onboarding, and payments — all while maintaining trust, transparency, and control for both employers and contractors.",
@@ -137,13 +137,13 @@ export const projects: Project[] = [
                 { label: "User Roles Designed", value: "3 Core Roles" },
                 { label: "Hiring Friction Reduced", value: "-60%" }
             ],
-            testimonial: {
-                quote: "Working through the design phase together brought immediate clarity. The structure, flows, and decisions now reflect how hiring actually works in the real world.",
-                author: "Founder",
-                role: "Product & Operations",
-                company: "Recrewer",
-                avatar: "https://randomuser.me/api/portraits/men/45.jpg"
-            },
+            /* testimonial: {
+                 quote: "Working through the design phase together brought immediate clarity. The structure, flows, and decisions now reflect how hiring actually works in the real world.",
+                 author: "Founder",
+                 role: "Product & Operations",
+                 company: "Recrewer",
+                 avatar: "https://randomuser.me/api/portraits/men/45.jpg"
+             },*/
             result: "A fully defined hiring platform design that translates complex recruitment processes into simple, intuitive workflows. Recrewer now has a clear system for talent discovery, interviews, offers, contracts, onboarding, and payments — all aligned around trust, clarity, and scalability. The design phase established a strong foundation for development, partnerships, and long-term growth.",
             liveUrl: "https://recrewer.com",
             galleryImages: [
@@ -158,6 +158,7 @@ export const projects: Project[] = [
             ]
         }
     },
+    /*
     {
         title: "The Drivory",
         tags: ["SOCIAL MEDIA", "WEB", "MOBILE"],
@@ -168,8 +169,8 @@ export const projects: Project[] = [
         caseStudy: {
             title: "CarsAncestry",
             headline: "BUILDING THE SOCIAL NETWORK FOR CAR OWNERS & ENTHUSIASTS",
-            services: ["PRODUCT STRATEGY", "UX DESIGN", "DEVELOPMENT"],
-            tools: ["BUBBLE", "FIGMA", "ZAPIER"],
+            services: ["PRODUCT STRATEGY", "UX DESIGN", "NOCODE DEVELOPMENT"],
+            tools: ["BUBBLE", "FIGMA"],
             timeline: "3 MONTHS",
             mainImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop",
             intro: "CarsAncestry aims to be the home for car enthusiasts — a platform where every ride has a timeline, every owner has a voice, and every vehicle’s story lives beyond the road. We designed and developed a social system that allows users to log vehicles, share updates, join car clubs, and build legacy-driven profiles.",
@@ -192,6 +193,7 @@ export const projects: Project[] = [
                 avatar: "https://randomuser.me/api/portraits/men/64.jpg"
             },
             result: "A fully functional social platform that empowers users to document their automotive journeys, connect through shared models and clubs, and build a digital legacy for every car they’ve owned.",
+            liveUrl: "https://recrewer.com",
             galleryImages: [
                 { url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop", caption: "Community Feed" },
                 { url: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1600&auto=format&fit=crop", caption: "Vehicle Profile" },
@@ -200,21 +202,21 @@ export const projects: Project[] = [
                 { url: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1600&auto=format&fit=crop", caption: "User Settings" }
             ]
         }
-    },
+    },*/
     {
         title: "DemmyPay",
         tags: ["FINTECH", "WEB", "MOBILE"],
         type: "B2B & B2C Fintech Platform",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop",
+        image: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/424shots_so.png?q=80&w=1600&auto=format&fit=crop",
         hoverImage: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=1600&auto=format&fit=crop",
         color: "bg-white",
         caseStudy: {
             title: "DemmyPay",
             headline: "POWERING AIRTIME & DATA PAYMENTS FOR BUSINESSES AND EVERYDAY NIGERIANS",
-            services: ["PRODUCT STRATEGY", "UX/UI DESIGN", "NO-CODE DEVELOPMENT"],
-            tools: ["BUBBLE", "FIGMA", "PAYSTACK"],
+            services: ["PRODUCT STRATEGY", "UX/UI DESIGN", "PRODUCT MANAGEMENT"],
+            tools: ["FIGJAM", "FIGMA", "GOOGLE SHEETS"],
             timeline: "6 WEEKS",
-            mainImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=1600&auto=format&fit=crop",
+            mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/417shots_so.png?q=80&w=1600&auto=format&fit=crop",
             intro: "DemmyPay is a Nigerian B2B and B2C fintech platform that enables fast, secure, and reliable airtime and data transactions. The product serves everyday consumers as well as businesses and high-volume vendors through wallet-based payments, instant fulfillment, and reseller pricing. To date, DemmyPay has processed over $1B in transaction volume across consumer and business use cases.",
             challenges: [
                 "Designing a product that works equally well for individual consumers and business users with very different needs.",
@@ -228,19 +230,78 @@ export const projects: Project[] = [
                 { label: "Transaction Success Rate", value: "99.9%" }
             ],
             testimonial: {
-                quote: "DemmyPay works perfectly for both my personal use and my data business. It’s fast, reliable, and easy to manage.",
-                author: "O. Adeyemi",
-                role: "Business User",
+                quote: "DemmyPay works perfectly for both our personal use and our data business. It’s fast, reliable, and easy to manage.",
+                author: "Ayomide",
+                role: "Product Manager",
                 company: "DemmyPay",
                 avatar: "https://randomuser.me/api/portraits/men/45.jpg"
             },
             result: "A scalable B2B and B2C fintech platform that powers billions in airtime and data transactions, supports businesses with reliable vendor tools, and delivers a fast, trustworthy experience for everyday Nigerian consumers.",
+            liveUrl: "https://demmypay.com",
             galleryImages: [
-                { url: "https://images.unsplash.com/photo-1556742111-a301076d9d18?q=80&w=1600&auto=format&fit=crop", caption: "Landing Page & Audience Split Messaging" },
-                { url: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1600&auto=format&fit=crop", caption: "Consumer Wallet & Transactions" },
-                { url: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?q=80&w=1600&auto=format&fit=crop", caption: "Airtime & Data Purchase Flow" },
-                { url: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?q=80&w=1600&auto=format&fit=crop", caption: "Business & Vendor Dashboard" },
-                { url: "https://images.unsplash.com/photo-1556741533-f6acd647d2fb?q=80&w=1600&auto=format&fit=crop", caption: "Mobile Consumer Experience" }
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/417shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Business & Vendor Dashboard" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/424shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "API Documentation" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/646shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Transaction History" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/497shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Beneficiaries Management" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/735shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Export Transaction record" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/645shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Settings" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/952shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Transaction History" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/161shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Pin Setup" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/161shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Data & Airtime Purchase" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/532shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Share 'n' Sell Data Sharing" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/258shots_so+(1).png?q=80&w=1600&auto=format&fit=crop", caption: "Beneficiary Selection" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/397shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Beneficiary Selection" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Demmypay/261shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Auto Contact Addition" },
+            ]
+        }
+    },
+    {
+        title: "TrailHead",
+        tags: ["FINTECH", "MOBILE", "RETIREMENT"],
+        type: "Personal Finance & Retirement Planning App",
+        image: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/Main+image.png",
+        hoverImage: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1600&auto=format&fit=crop",
+        color: "bg-white",
+        caseStudy: {
+            title: "TrailHead",
+            headline: "HELPING PEOPLE VISUALIZE AND STAY ON TRACK WITH THEIR RETIREMENT JOURNEY",
+            services: ["PRODUCT STRATEGY", "UX/UI DESIGN", "DESIGN SYSTEM"],
+            tools: ["FIGJAM", "FIGMA", "NOTION"],
+            timeline: "10+ WEEKS",
+            mainImage: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/Main+image.png",
+            intro:
+                "TrailHead is a mobile retirement planning app designed to help users understand, visualize, and stay motivated on their long-term savings journey. Instead of relying on spreadsheets or manual tracking, TrailHead uses a one-time onboarding setup to generate personalized projections, progress scoring, and benchmark comparisons. The product focuses on clarity, habit-building, and behavioral motivation for everyday users planning for retirement.",
+            challenges: [
+                "Designing a retirement planning experience that feels approachable rather than intimidating.",
+                "Translating complex financial concepts like projections, benchmarks, and volatility into simple visuals.",
+                "Keeping users engaged over time without requiring manual data entry or daily input.",
+                "Balancing data density with a calm, motivating interface suitable for a wide age range."
+            ],
+            process:
+                "We started by mapping the full user journey, from first launch to long-term usage. The product was designed around a one-time Trail Setup flow that collects key inputs and powers the entire experience. From there, I designed a modular dashboard system that surfaces projections, progress scores, and peer benchmarks through visual storytelling. A scalable design system was created to support charts, scoring states, and future premium features, ensuring consistency across the app.",
+            stats: [
+                { label: "Primary User Input Time", value: "< 5 minutes" },
+                { label: "Manual Data Logging Required", value: "0" },
+                { label: "Core Dashboards Designed", value: "5+" }
+            ],
+            testimonial: {
+                quote:
+                    "Tife did a perfect job and I am willing to hire him again when the opportunity comes.",
+                author: "Sam C.",
+                role: "Client",
+                company: "TrailHead",
+                avatar: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/Samuel+Cousin.avif"
+            },
+            result:
+                "TrailHead delivers a clean, scalable retirement planning experience that replaces spreadsheets with intuitive visuals. Users gain immediate clarity on their savings trajectory, ongoing motivation through scoring and benchmarks, and confidence in their long-term financial decisions without needing advanced financial knowledge.",
+            liveUrl: "",
+            galleryImages: [
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/742shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Dashboard" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/21shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Dashboard, Checkpoint & Pace vs Pack" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/231shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Pace vs Pack" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/149shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Trail Checkpoint" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/536shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Settings -> Email Change Process" },
+                { url: "https://piton-digital.s3.eu-north-1.amazonaws.com/Trailhead/536shots_so.png?q=80&w=1600&auto=format&fit=crop", caption: "Trail Checkpoint" },
             ]
         }
     }
