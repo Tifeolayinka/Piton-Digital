@@ -14,14 +14,14 @@ const AboutMe: React.FC = () => {
                             <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-xl group">
                                 <div className="absolute inset-0 bg-piton-black/0 group-hover:bg-piton-black/10 transition-colors duration-500 z-10" />
                                 <img
-                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Alex Rose - Founder"
+                                    src="https://piton-digital.s3.eu-north-1.amazonaws.com/Portfolio+Image.JPG"
+                                    alt="Tife Olayinka - Founder"
                                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-105"
                                 />
 
                                 {/* Subtle Name Tag */}
                                 <div className="absolute bottom-6 left-6 z-20 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm">
-                                    <p className="font-display font-bold text-piton-black">Alex Rose</p>
+                                    <p className="font-display font-bold text-piton-black">Tife Olayinka</p>
                                     <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">Founder</p>
                                 </div>
                             </div>
