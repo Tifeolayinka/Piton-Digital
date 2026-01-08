@@ -23,7 +23,7 @@ const StarterModule: React.FC = () => {
     ];
 
     return (
-        <section id="starter-offer" className="py-24 bg-white relative overflow-hidden">
+        <section id="starter-offer" className="py-16 md:py-24 bg-white relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="bg-piton-black rounded-[2.5rem] p-8 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl">
                     {/* Background Accents */}

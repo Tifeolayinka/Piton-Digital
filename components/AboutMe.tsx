@@ -4,7 +4,7 @@ import { Twitter, Linkedin, Github } from 'lucide-react';
 
 const AboutMe: React.FC = () => {
     return (
-        <section className="py-32 bg-zinc-50 border-t border-zinc-100">
+        <section className="py-20 md:py-32 bg-zinc-50/50 overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
 

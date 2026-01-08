@@ -4,7 +4,7 @@ import { Calendar, Mail, Lock } from 'lucide-react';
 
 const Contact: React.FC = () => {
     return (
-        <section id="contact" className="bg-piton-black py-32 relative overflow-hidden">
+        <section id="contact" className="bg-piton-black py-20 md:py-32 relative overflow-hidden">
             {/* Background Image Overlay */}
             <div className="absolute inset-0 opacity-30">
                 <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover grayscale" alt="Clouds" />

@@ -147,7 +147,7 @@ const Work: React.FC<WorkProps> = ({ onProjectClick }) => {
   }, [activeFilter]);
 
   return (
-    <section id="work" className="py-32 bg-[#FDFDFD]">
+    <section id="work" className="py-20 md:py-32 bg-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">

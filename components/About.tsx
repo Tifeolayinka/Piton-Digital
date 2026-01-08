@@ -43,10 +43,10 @@ const About: React.FC = () => {
                     </div>
 
                     {/* Right Column - Visuals */}
-                    <div className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full block mt-8 lg:mt-0">
+                    <div className="relative h-auto md:h-[500px] lg:h-[600px] w-full block mt-8 lg:mt-0">
                         <Reveal delay={0.3} className="h-full w-full">
                             {/* Main Image */}
-                            <div className="absolute top-0 right-0 w-full lg:w-[80%] h-full lg:h-[85%] bg-zinc-100 rounded-2xl overflow-hidden shadow-2xl z-10">
+                            <div className="relative md:absolute top-0 right-0 w-full lg:w-[80%] aspect-[4/3] md:aspect-auto h-auto md:h-full lg:h-[85%] bg-zinc-100 rounded-2xl overflow-hidden shadow-2xl z-10">
                                 <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Team working" />
                             </div>
 
@@ -54,9 +54,9 @@ const About: React.FC = () => {
                             <motion.div
                                 animate={{ y: [0, -20, 0] }}
                                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                                className="absolute bottom-4 lg:bottom-10 left-4 lg:left-0 w-[70%] lg:w-[50%] h-[30%] lg:h-[40%] bg-white border border-zinc-100 rounded-2xl shadow-xl p-6 lg:p-8 z-20 flex flex-col justify-between"
+                                className="absolute -bottom-6 md:bottom-4 lg:bottom-10 left-4 lg:left-0 w-[70%] lg:w-[50%] h-auto md:h-[30%] lg:h-[40%] bg-white border border-zinc-100 rounded-2xl shadow-xl p-6 lg:p-8 z-20 flex flex-col justify-between"
                             >
-                                <div className="flex justify-between items-start">
+                                <div className="flex justify-between items-start mb-4 md:mb-0">
                                     <span className="text-3xl lg:text-5xl font-display font-bold text-piton-black">7+</span>
                                     <div className="w-2 h-2 bg-piton-accent rounded-full animate-pulse"></div>
                                 </div>
@@ -67,7 +67,7 @@ const About: React.FC = () => {
                             </motion.div>
 
                             {/* Decorative Circle */}
-                            <div className="absolute -top-10 -right-10 w-64 h-64 border border-zinc-200 rounded-full z-0 opacity-50"></div>
+                            <div className="absolute -top-10 -right-10 w-64 h-64 border border-zinc-200 rounded-full z-0 opacity-50 hidden md:block"></div>
                         </Reveal>
                     </div>
                 </div>

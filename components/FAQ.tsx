@@ -30,49 +30,49 @@ const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="py-24 bg-zinc-50/50">
+    <section id="faq" className="py-16 md:py-24 bg-zinc-50/50">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 flex flex-col items-center">
-           <Reveal>
-             <h2 className="text-3xl font-display font-bold text-piton-black mb-2">Frequently Asked Questions</h2>
-           </Reveal>
-           <Reveal delay={0.1}>
-             <p className="text-zinc-500">Providing answers to your questions.</p>
-           </Reveal>
+          <Reveal>
+            <h2 className="text-3xl font-display font-bold text-piton-black mb-2">Frequently Asked Questions</h2>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="text-zinc-500">Providing answers to your questions.</p>
+          </Reveal>
         </div>
 
         <div className="space-y-4">
-           {faqs.map((faq, i) => (
-              <Reveal key={i} delay={i * 0.1} width="100%">
-                  <div className="border-b border-zinc-200 pb-4">
-                     <button 
-                       onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                       className="w-full flex items-center justify-between text-left py-4 hover:text-piton-accent transition-colors interactive"
-                     >
-                        <span className="text-lg font-bold text-piton-black flex items-center gap-3">
-                             <div className="w-6 h-6 rounded-full border border-zinc-300 flex items-center justify-center text-xs text-zinc-400 font-mono">
-                                  {openIndex === i ? '-' : '+'}
-                             </div>
-                             {faq.q}
-                        </span>
-                     </button>
-                     <AnimatePresence>
-                        {openIndex === i && (
-                           <motion.div
-                             initial={{ height: 0, opacity: 0 }}
-                             animate={{ height: 'auto', opacity: 1 }}
-                             exit={{ height: 0, opacity: 0 }}
-                             className="overflow-hidden"
-                           >
-                              <p className="pb-4 text-zinc-600 leading-relaxed text-sm pl-9 pr-8">
-                                 {faq.a}
-                              </p>
-                           </motion.div>
-                        )}
-                     </AnimatePresence>
-                  </div>
-              </Reveal>
-           ))}
+          {faqs.map((faq, i) => (
+            <Reveal key={i} delay={i * 0.1} width="100%">
+              <div className="border-b border-zinc-200 pb-4">
+                <button
+                  onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                  className="w-full flex items-center justify-between text-left py-4 hover:text-piton-accent transition-colors interactive"
+                >
+                  <span className="text-lg font-bold text-piton-black flex items-center gap-3">
+                    <div className="w-6 h-6 rounded-full border border-zinc-300 flex items-center justify-center text-xs text-zinc-400 font-mono">
+                      {openIndex === i ? '-' : '+'}
+                    </div>
+                    {faq.q}
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {openIndex === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="pb-4 text-zinc-600 leading-relaxed text-sm pl-9 pr-8">
+                        {faq.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@ const Process: React.FC = () => {
    ];
 
    return (
-      <section className="py-32 bg-piton-black relative overflow-hidden">
+      <section id="process" className="py-20 md:py-32 bg-zinc-50/50 relative overflow-hidden">
          {/* Background Grid */}
          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_100%)] pointer-events-none" />
 

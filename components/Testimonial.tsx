@@ -225,7 +225,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ showVideo = true }) => {
   };
 
   return (
-    <section className="py-32 bg-white overflow-hidden">
+    <section className="py-20 md:py-32 bg-white overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <Reveal width="100%">
           <h2 className="text-4xl font-display font-serif font-medium text-piton-black mb-4">
