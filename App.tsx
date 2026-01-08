@@ -18,6 +18,7 @@ import CustomCursor from './components/CustomCursor';
 import LoadingScreen from './components/LoadingScreen';
 import Admin from './src/pages/Admin';
 import CaseStudyModal, { CaseStudyData } from './components/CaseStudyModal';
+import StarterModule from './components/StarterModule';
 
 
 const NoiseOverlay = () => (
@@ -82,6 +83,7 @@ const App: React.FC = () => {
         <Work onProjectClick={setSelectedProject} />
 
         <Testimonial />
+        <StarterModule />
         <FAQ />
         <Contact />
       </main>
