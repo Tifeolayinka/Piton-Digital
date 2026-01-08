@@ -40,7 +40,7 @@ const AboutMe: React.FC = () => {
                         <Reveal delay={0.1}>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-piton-black leading-[1.1] tracking-tight mb-8">
                                 Bridging the gap between <br />
-                                <span className="text-zinc-400">Design & Code.</span>
+                                <span className="text-zinc-400">Design & Development.</span>
                             </h2>
                         </Reveal>
 
@@ -60,15 +60,13 @@ const AboutMe: React.FC = () => {
 
                         <Reveal delay={0.3}>
                             <div className="mt-10 flex items-center gap-6">
-                                <a href="#" className="text-zinc-400 hover:text-piton-accent transition-colors">
+                                <a href="https://x.com/tife_olayinka" className="text-zinc-400 hover:text-piton-accent transition-colors">
                                     <Twitter className="w-5 h-5" />
                                 </a>
-                                <a href="#" className="text-zinc-400 hover:text-piton-accent transition-colors">
+                                <a href="https://www.linkedin.com/in/olayinka-boluwatife-/" className="text-zinc-400 hover:text-piton-accent transition-colors">
                                     <Linkedin className="w-5 h-5" />
                                 </a>
-                                <a href="#" className="text-zinc-400 hover:text-piton-accent transition-colors">
-                                    <Github className="w-5 h-5" />
-                                </a>
+
                             </div>
                         </Reveal>
                     </div>

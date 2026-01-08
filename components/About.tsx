@@ -22,10 +22,10 @@ const About: React.FC = () => {
                         <Reveal delay={0.2} width="100%">
                             <div className="space-y-6 text-lg text-zinc-500 font-light leading-relaxed">
                                 <p>
-                                    Most agencies are fragmented. Designers who don't code, and developers who don't care about pixels. We bridge that gap.
+                                    Most agencies are fragmented. Designers who don't build, and developers who don't care about pixels. We bridge that gap.
                                 </p>
                                 <p>
-                                    We are a hybrid team of product strategists, UI/UX experts, and full-stack engineers. We don't hand off files; we ship finished products. Our process is built for speed, scalability, and pixel-perfect execution.
+                                    We are a hybrid team of product strategists, UI/UX experts, and full-stack Nocode Developers. We don't hand off files; we ship finished products. Our process is built for speed, scalability, and pixel-perfect execution.
                                 </p>
                             </div>
                         </Reveal>
