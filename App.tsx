@@ -23,6 +23,7 @@ import Reveal from './components/Reveal';
 import Portfolio from './src/pages/Portfolio';
 import DesignPortfolio from './src/pages/DesignPortfolio';
 import NoCodePortfolio from './src/pages/NoCodePortfolio';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 const NoiseOverlay = () => (
   <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay">
@@ -154,6 +155,7 @@ const App: React.FC = () => {
       <NoiseOverlay />
       <ClimbingLine />
       <Navbar />
+      <WhatsAppWidget />
 
       {renderContent()}
 
