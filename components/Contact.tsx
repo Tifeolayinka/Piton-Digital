@@ -31,7 +31,7 @@ const Contact: React.FC<ContactProps> = ({ showFooter = true }) => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-24">
                     {/* Option 1: Strategy Call */}
                     <Reveal delay={0.2} className="h-full">
-                        <a href="https://calendly.com" target="_blank" rel="noreferrer" className="group flex flex-col h-full p-10 bg-zinc-900/50 border border-zinc-800 hover:border-piton-accent transition-all rounded-2xl text-left interactive hover:bg-zinc-900/80 backdrop-blur-sm">
+                        <a href="https://cal.com/tifeolayinka/project-consultation" target="_blank" rel="noreferrer" className="group flex flex-col h-full p-10 bg-zinc-900/50 border border-zinc-800 hover:border-piton-accent transition-all rounded-2xl text-left interactive hover:bg-zinc-900/80 backdrop-blur-sm">
                             <div className="w-12 h-12 bg-piton-accent rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                                 <Calendar className="w-6 h-6 text-white" />
                             </div>

@@ -10,6 +10,7 @@ interface HeroProps {
   ctaText?: string;
   secondaryCtaText?: string;
   showLogos?: boolean;
+  trustText?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
@@ -18,7 +19,8 @@ const Hero: React.FC<HeroProps> = ({
   badgeText = "→ Clarity • Structure • Scale ←",
   ctaText = "Start with a $500 Starter Module",
   secondaryCtaText = "Book a short call",
-  showLogos = true
+  showLogos = true,
+  trustText = "Trusted by 22+ founders & business owners"
 }) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
@@ -139,7 +141,7 @@ const Hero: React.FC<HeroProps> = ({
             </div>
             <div className="flex flex-col items-start">
               <div className="flex text-yellow-400 text-xs">★★★★★</div>
-              <span className="text-xs text-zinc-500 font-medium">Trusted by 12k+ designers</span>
+              <span className="text-xs text-zinc-500 font-medium">{trustText}</span>
             </div>
           </motion.div>
 
@@ -164,7 +166,9 @@ const Hero: React.FC<HeroProps> = ({
             </a>
 
             <a
-              href="#work"
+              href="https://cal.com/tifeolayinka/project-consultation"
+              target="_blank"
+              rel="noreferrer"
               className="px-8 py-4 bg-transparent text-piton-black font-medium text-sm hover:bg-zinc-50 rounded-full transition-all interactive flex items-center gap-2"
             >
               {secondaryCtaText}

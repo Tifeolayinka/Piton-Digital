@@ -89,7 +89,12 @@ const Services: React.FC = () => {
 
                     {/* Service 6 - CTA Card */}
                     <Reveal width="100%" delay={0.2} className="h-full" style={{ height: '100%' }}>
-                        <div className="bg-piton-black p-12 flex flex-col justify-between group relative overflow-hidden h-full">
+                        <a
+                            href="https://cal.com/tifeolayinka/project-consultation"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="bg-piton-black p-12 flex flex-col justify-between group relative overflow-hidden h-full block"
+                        >
                             <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,rgba(0,166,81,0.2),rgba(0,0,0,0)_50%)]"></div>
                             <div className="relative z-10">
                                 <span className="text-zinc-500 font-mono text-xs tracking-widest uppercase mb-4 block">06</span>
@@ -103,7 +108,7 @@ const Services: React.FC = () => {
                                     <ArrowUpRight className="w-5 h-5" />
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </Reveal>
 
                 </div>

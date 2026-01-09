@@ -11,6 +11,15 @@ const PortfolioFooter: React.FC = () => {
                         <p className="text-zinc-500 max-w-md mb-8">
                             I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
                         </p>
+                        <a
+                            href="https://cal.com/tifeolayinka/project-consultation"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-piton-black text-white rounded-full font-medium text-sm hover:bg-zinc-800 transition-colors mb-8"
+                        >
+                            <span>Book a Call</span>
+                            <ArrowRight className="w-4 h-4" />
+                        </a>
                         <div className="flex items-center gap-6">
                             <a href="https://x.com/tife_olayinka" className="text-zinc-400 hover:text-piton-accent transition-colors">
                                 <Twitter className="w-5 h-5" />
