@@ -2,7 +2,11 @@ import React from 'react';
 import Reveal from './Reveal';
 import { Calendar, Mail, Lock } from 'lucide-react';
 
-const Contact: React.FC = () => {
+interface ContactProps {
+    showFooter?: boolean;
+}
+
+const Contact: React.FC<ContactProps> = ({ showFooter = true }) => {
     return (
         <section id="contact" className="bg-piton-black py-20 md:py-32 relative overflow-hidden">
             {/* Background Image Overlay */}
@@ -58,20 +62,24 @@ const Contact: React.FC = () => {
                     </Reveal>
                 </div>
 
-                <div className="flex justify-center gap-8 mb-12">
-                    <a href="#" className="text-zinc-500 hover:text-white transition-colors interactive text-sm tracking-widest uppercase">X / Twitter</a>
-                    <a href="#" className="text-zinc-500 hover:text-white transition-colors interactive text-sm tracking-widest uppercase">LinkedIn</a>
-                    <a href="#" className="text-zinc-500 hover:text-white transition-colors interactive text-sm tracking-widest uppercase">Instagram</a>
-                </div>
+                {showFooter && (
+                    <>
+                        <div className="flex justify-center gap-8 mb-12">
+                            <a href="#" className="text-zinc-500 hover:text-white transition-colors interactive text-sm tracking-widest uppercase">X / Twitter</a>
+                            <a href="#" className="text-zinc-500 hover:text-white transition-colors interactive text-sm tracking-widest uppercase">LinkedIn</a>
+                            <a href="#" className="text-zinc-500 hover:text-white transition-colors interactive text-sm tracking-widest uppercase">Instagram</a>
+                        </div>
 
-                <div className="flex flex-col items-center gap-4">
-                    <div className="text-center text-zinc-800 text-[10px] font-mono uppercase">
-                        © 2024 PITON DIGITAL. ALL RIGHTS RESERVED.
-                    </div>
-                    <a href="#admin" onClick={() => window.location.hash = 'admin'} className="flex items-center gap-1 text-zinc-800 hover:text-zinc-600 transition-colors text-[10px] font-mono uppercase tracking-widest interactive">
-                        <Lock className="w-3 h-3" /> Admin Access
-                    </a>
-                </div>
+                        <div className="flex flex-col items-center gap-4">
+                            <div className="text-center text-zinc-800 text-[10px] font-mono uppercase">
+                                © 2024 PITON DIGITAL. ALL RIGHTS RESERVED.
+                            </div>
+                            <a href="#admin" onClick={() => window.location.hash = 'admin'} className="flex items-center gap-1 text-zinc-800 hover:text-zinc-600 transition-colors text-[10px] font-mono uppercase tracking-widest interactive">
+                                <Lock className="w-3 h-3" /> Admin Access
+                            </a>
+                        </div>
+                    </>
+                )}
             </div>
         </section>
     );

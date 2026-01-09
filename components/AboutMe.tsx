@@ -2,7 +2,36 @@ import React from 'react';
 import Reveal from './Reveal';
 import { Twitter, Linkedin, Github } from 'lucide-react';
 
-const AboutMe: React.FC = () => {
+interface AboutMeProps {
+    badgeText?: string;
+    title?: React.ReactNode;
+    description?: React.ReactNode;
+    role?: string;
+}
+
+const AboutMe: React.FC<AboutMeProps> = ({
+    badgeText = "The Founder",
+    title = (
+        <>
+            Bridging the gap between <br />
+            <span className="text-zinc-400">Design & Development.</span>
+        </>
+    ),
+    description = (
+        <>
+            <p>
+                I founded Piton Digital with a singular belief: <strong className="text-piton-black font-medium">Great products shouldn't take forever to build.</strong>
+            </p>
+            <p>
+                My background spans both product design and full-stack engineering. This hybrid perspective allows me to see the whole picture—from the first pixel to the final database query. I don't just hand off designs; I build systems that scale.
+            </p>
+            <p>
+                When you work with us, you're not getting a bloated agency. You're getting a dedicated partner obsessed with shipping speed and quality.
+            </p>
+        </>
+    ),
+    role = "Founder"
+}) => {
     return (
         <section className="py-20 md:py-32 bg-zinc-50/50 overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +51,7 @@ const AboutMe: React.FC = () => {
                                 {/* Subtle Name Tag */}
                                 <div className="absolute bottom-6 left-6 z-20 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-lg shadow-sm">
                                     <p className="font-display font-bold text-piton-black">Tife Olayinka</p>
-                                    <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">Founder</p>
+                                    <p className="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">{role}</p>
                                 </div>
                             </div>
                         </Reveal>
@@ -33,28 +62,19 @@ const AboutMe: React.FC = () => {
                         <Reveal>
                             <div className="inline-flex items-center gap-2 mb-6">
                                 <div className="w-8 h-px bg-piton-accent"></div>
-                                <span className="text-xs font-mono text-piton-accent uppercase tracking-widest">The Founder</span>
+                                <span className="text-xs font-mono text-piton-accent uppercase tracking-widest">{badgeText}</span>
                             </div>
                         </Reveal>
 
                         <Reveal delay={0.1}>
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-piton-black leading-[1.1] tracking-tight mb-8">
-                                Bridging the gap between <br />
-                                <span className="text-zinc-400">Design & Development.</span>
+                                {title}
                             </h2>
                         </Reveal>
 
                         <Reveal delay={0.2}>
                             <div className="space-y-6 text-lg text-zinc-500 font-light leading-relaxed max-w-2xl">
-                                <p>
-                                    I founded Piton Digital with a singular belief: <strong className="text-piton-black font-medium">Great products shouldn't take forever to build.</strong>
-                                </p>
-                                <p>
-                                    My background spans both product design and full-stack engineering. This hybrid perspective allows me to see the whole picture—from the first pixel to the final database query. I don't just hand off designs; I build systems that scale.
-                                </p>
-                                <p>
-                                    When you work with us, you're not getting a bloated agency. You're getting a dedicated partner obsessed with shipping speed and quality.
-                                </p>
+                                {description}
                             </div>
                         </Reveal>
 

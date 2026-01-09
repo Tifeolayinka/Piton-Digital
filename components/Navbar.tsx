@@ -12,6 +12,12 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navigate = (path: string) => {
+    window.history.pushState({}, '', path);
+    window.dispatchEvent(new Event('popstate'));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const navLinks = [
     { name: 'Work', href: '#work' },
     { name: 'About', href: '#about' },
@@ -22,7 +28,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md border-b border-zinc-100 py-4 shadow-sm' : 'bg-transparent py-6'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <div className="flex items-center gap-1 cursor-pointer group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <div className="flex items-center gap-1 cursor-pointer group" onClick={() => navigate('/')}>
           <img
             src="https://piton-digital.s3.eu-north-1.amazonaws.com/Jpg-01+(3)+1.png"
             alt="Piton Digital"
@@ -36,6 +42,9 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                // No path-based links in main nav anymore
+              }}
               className="text-sm font-sans font-medium text-piton-secondary hover:text-piton-black transition-colors"
             >
               {link.name}
@@ -73,8 +82,10 @@ const Navbar: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + index * 0.1 }}
                   href={link.href}
+                  onClick={(e) => {
+                    setIsOpen(false);
+                  }}
                   className="text-piton-black hover:text-piton-accent font-display text-2xl font-bold"
-                  onClick={() => setIsOpen(false)}
                 >
                   {link.name}
                 </motion.a>

@@ -20,6 +20,9 @@ import Admin from './src/pages/Admin';
 import CaseStudyModal, { CaseStudyData } from './components/CaseStudyModal';
 import StarterModule from './components/StarterModule';
 import Reveal from './components/Reveal';
+import Portfolio from './src/pages/Portfolio';
+import DesignPortfolio from './src/pages/DesignPortfolio';
+import NoCodePortfolio from './src/pages/NoCodePortfolio';
 
 const NoiseOverlay = () => (
   <div className="fixed inset-0 z-50 pointer-events-none opacity-[0.03] mix-blend-overlay">
@@ -36,34 +39,48 @@ const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<CaseStudyData | null>(null);
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
     const checkHash = () => {
       setIsAdmin(window.location.hash === '#admin');
     };
 
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+      checkHash();
+    };
+
     checkHash();
     window.addEventListener('hashchange', checkHash);
-    return () => window.removeEventListener('hashchange', checkHash);
+    window.addEventListener('popstate', handleLocationChange);
+
+    // Custom event for internal navigation
+    window.addEventListener('pushstate', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('hashchange', checkHash);
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('pushstate', handleLocationChange);
+    };
   }, []);
 
   if (isAdmin) {
     return <Admin onBack={() => window.location.hash = ''} />;
   }
 
-  return (
-    <div className="min-h-screen bg-[#FDFDFD] text-piton-black font-sans selection:bg-piton-accent selection:text-white md:cursor-none antialiased">
-      <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      </AnimatePresence>
+  const renderContent = () => {
+    if (currentPath === '/portfolio') {
+      return <Portfolio onProjectClick={setSelectedProject} />;
+    }
+    if (currentPath === '/design') {
+      return <DesignPortfolio onProjectClick={setSelectedProject} />;
+    }
+    if (currentPath === '/nocode') {
+      return <NoCodePortfolio onProjectClick={setSelectedProject} />;
+    }
 
-      <div className="hidden md:block">
-        <CustomCursor />
-      </div>
-      <NoiseOverlay />
-      <ClimbingLine />
-      <Navbar />
-
+    return (
       <main>
         <Hero />
 
@@ -122,6 +139,23 @@ const App: React.FC = () => {
           <Contact />
         </Reveal>
       </main>
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FDFDFD] text-piton-black font-sans selection:bg-piton-accent selection:text-white md:cursor-none antialiased">
+      <AnimatePresence mode="wait">
+        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
+
+      <div className="hidden md:block">
+        <CustomCursor />
+      </div>
+      <NoiseOverlay />
+      <ClimbingLine />
+      <Navbar />
+
+      {renderContent()}
 
       <AnimatePresence>
         {selectedProject && (

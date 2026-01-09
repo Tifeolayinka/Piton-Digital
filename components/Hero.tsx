@@ -3,7 +3,23 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Brain, PenTool, Code } from 'lucide-react';
 import InteractiveParticles from './InteractiveParticles';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  title?: React.ReactNode;
+  subtitle?: string;
+  badgeText?: string;
+  ctaText?: string;
+  secondaryCtaText?: string;
+  showLogos?: boolean;
+}
+
+const Hero: React.FC<HeroProps> = ({
+  title = "We build scalable digital products for founders who care about clarity.",
+  subtitle = "Stop drowning in messy workflows. We build structured, scalable internal tools and MVPs that actually work—handling strategy, design, and no-code development in one unified process.",
+  badgeText = "→ Clarity • Structure • Scale ←",
+  ctaText = "Start with a $500 Starter Module",
+  secondaryCtaText = "Book a short call",
+  showLogos = true
+}) => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: MouseEvent<HTMLElement>) => {
@@ -80,7 +96,7 @@ const Hero: React.FC = () => {
             className="flex justify-center mb-6"
           >
             <span className="text-xs font-mono text-piton-secondary uppercase tracking-wider">
-              → Clarity • Structure • Scale ←
+              {badgeText}
             </span>
           </motion.div>
 
@@ -92,7 +108,7 @@ const Hero: React.FC = () => {
               }}
               className="text-4xl md:text-7xl font-display font-bold tracking-tight text-piton-black mb-8 leading-[1.1] transform-gpu"
             >
-              We build scalable digital products for founders who care about clarity.
+              {title}
             </motion.h1>
           </div>
 
@@ -103,7 +119,7 @@ const Hero: React.FC = () => {
             }}
             className="text-base md:text-xl text-piton-secondary max-w-3xl mx-auto mb-10 font-light leading-relaxed"
           >
-            Stop drowning in messy workflows. We build structured, scalable internal tools and MVPs that actually work—handling strategy, design, and no-code development in one unified process.
+            {subtitle}
           </motion.p>
 
           {/* Trust Badge */}
@@ -142,7 +158,7 @@ const Hero: React.FC = () => {
                 <span className="text-xs">🚀</span>
               </div>
               <div className="flex flex-col text-left leading-none">
-                <span>Start with a $500 Starter Module</span>
+                <span>{ctaText}</span>
                 <span className="text-[9px] text-zinc-400 font-normal mt-1">Low risk, fast progress</span>
               </div>
             </a>
@@ -151,7 +167,7 @@ const Hero: React.FC = () => {
               href="#work"
               className="px-8 py-4 bg-transparent text-piton-black font-medium text-sm hover:bg-zinc-50 rounded-full transition-all interactive flex items-center gap-2"
             >
-              Book a short call
+              {secondaryCtaText}
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
@@ -166,21 +182,23 @@ const Hero: React.FC = () => {
             Structured execution. No fluff.
           </motion.div>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 10 },
-              visible: { opacity: 0.4, y: 0, transition: { duration: 1, delay: 0.8 } }
-            }}
-            className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 grayscale"
-          >
-            {/* Simple Logos */}
-            {['Shipfast', 'Trailhead', 'Quadrian 360', 'Dojohub', 'Imagine AI'].map((logo, i) => (
-              <div key={i} className="flex items-center gap-1 font-bold text-lg text-black">
-                <div className="w-4 h-4 bg-black rounded-full" />
-                {logo}
-              </div>
-            ))}
-          </motion.div>
+          {showLogos && (
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, y: 10 },
+                visible: { opacity: 0.4, y: 0, transition: { duration: 1, delay: 0.8 } }
+              }}
+              className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 grayscale"
+            >
+              {/* Simple Logos */}
+              {['Shipfast', 'Trailhead', 'Quadrian 360', 'Dojohub', 'Imagine AI'].map((logo, i) => (
+                <div key={i} className="flex items-center gap-1 font-bold text-lg text-black">
+                  <div className="w-4 h-4 bg-black rounded-full" />
+                  {logo}
+                </div>
+              ))}
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </section>
