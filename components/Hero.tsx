@@ -14,7 +14,7 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({
-  title = "We build scalable digital products for founders who care about clarity.",
+  title = "We design & build scalable digital products for founders & businesses who care about clarity.",
   subtitle = "Stop drowning in messy workflows. We build structured, scalable internal tools and MVPs that actually work—handling strategy, design, and no-code development in one unified process.",
   badgeText = "→ Clarity • Structure • Scale ←",
   ctaText = "Start with a $500 Starter Module",
