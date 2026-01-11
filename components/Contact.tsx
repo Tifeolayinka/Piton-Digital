@@ -47,7 +47,7 @@ const Contact: React.FC<ContactProps> = ({ showFooter = true }) => {
 
                     {/* Option 2: Email */}
                     <Reveal delay={0.3} className="h-full">
-                        <a href="mailto:hello@pitondigital.studio" className="group flex flex-col h-full p-10 bg-zinc-900/50 border border-zinc-800 hover:border-white transition-all rounded-2xl text-left interactive hover:bg-zinc-900/80 backdrop-blur-sm">
+                        <a href="mailto:boluolayinka1212@gmail.com" className="group flex flex-col h-full p-10 bg-zinc-900/50 border border-zinc-800 hover:border-white transition-all rounded-2xl text-left interactive hover:bg-zinc-900/80 backdrop-blur-sm">
                             <div className="w-12 h-12 bg-zinc-800 rounded-full flex items-center justify-center mb-8 group-hover:scale-110 transition-transform">
                                 <Mail className="w-6 h-6 text-white" />
                             </div>
