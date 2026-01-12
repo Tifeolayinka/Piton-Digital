@@ -11,11 +11,10 @@ const Services: React.FC = () => {
                 <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-12">
                     <Reveal width="100%" className="max-w-3xl">
                         <h2 className="text-5xl md:text-7xl font-display font-bold text-piton-black leading-[1.1] tracking-tight mb-8">
-                            Helping You Go from <br />
-                            <span className="text-piton-accent">Idea to Impact</span>
+                            Designing Systems That <span className="text-piton-accent"> Make Products Easier to Run.</span>
                         </h2>
                         <p className="text-xl text-zinc-500 font-light leading-relaxed max-w-2xl">
-                            Our team begins every project with one crucial step — <span className="font-medium text-piton-black">LISTENING</span>. We take the time to understand your goals, your users, and the problem you're trying to solve. From that foundation, we build powerful solutions.
+                            We don't just build apps; we architect systems. By focusing on <span className="font-medium text-piton-black">clarity, structure, and scalability</span>, we ensure your digital products are as easy to manage as they are to use.
                         </p>
                     </Reveal>
 
@@ -35,7 +34,6 @@ const Services: React.FC = () => {
                             desc="For teams that have dev resources but need world-class interface design. We deliver production-ready Figma files."
                             tags={['Product Design', 'Design Systems', 'Prototyping']}
                             icon={<Figma className="w-6 h-6" />}
-                            price="$1,500"
                         />
                     </Reveal>
 
@@ -45,9 +43,8 @@ const Services: React.FC = () => {
                             number="02"
                             title="No-Code Dev"
                             desc="For founders who have designs ready. We turn your Figma files into pixel-perfect, scalable software using Bubble or Webflow."
-                            tags={['Webflow', 'Bubble', 'React', 'Flutter']}
+                            tags={['Webflow', 'Bubble', 'Weweb', 'Flutterflow']}
                             icon={<Code className="w-6 h-6" />}
-                            price="$2,500"
                         />
                     </Reveal>
 
@@ -59,7 +56,6 @@ const Services: React.FC = () => {
                             desc="From zero to launched. We handle strategy, design, and development for MVPs, SaaS platforms, and mobile apps."
                             tags={['Strategy', 'Product Design', 'Development']}
                             icon={<Smartphone className="w-6 h-6" />}
-                            price="$4,500"
                         />
                     </Reveal>
 
@@ -71,7 +67,6 @@ const Services: React.FC = () => {
                             desc="Custom admin panels and operational tools for businesses. Replace spreadsheets with powerful, automated software."
                             tags={['Admin Panels', 'Dashboards', 'Automations']}
                             icon={<Layout className="w-6 h-6" />}
-                            price="$5,000"
                         />
                     </Reveal>
 
@@ -83,7 +78,6 @@ const Services: React.FC = () => {
                             desc="Connecting your favorite tools to save hours of manual data entry. Make.com and Zapier integrations."
                             tags={['Make.com', 'Zapier', 'API Integrations']}
                             icon={<Zap className="w-6 h-6" />}
-                            price="$1,000"
                         />
                     </Reveal>
 
@@ -117,7 +111,7 @@ const Services: React.FC = () => {
     );
 };
 
-const ServiceCard = ({ number, title, desc, tags, icon, price }: any) => (
+const ServiceCard = ({ number, title, desc, tags, icon }: any) => (
     <div className="bg-white p-12 flex flex-col h-full hover:bg-zinc-50 transition-colors group">
         <div className="flex justify-between items-start mb-8">
             <span className="text-zinc-300 font-mono text-xs tracking-widest uppercase group-hover:text-piton-accent transition-colors">{number}</span>
@@ -131,20 +125,13 @@ const ServiceCard = ({ number, title, desc, tags, icon, price }: any) => (
             {desc}
         </p>
 
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2">
             {tags.map((tag: string) => (
                 <span key={tag} className="px-2 py-1 bg-zinc-50 border border-zinc-100 text-[10px] font-mono uppercase tracking-wider text-zinc-500 rounded-sm">
                     {tag}
                 </span>
             ))}
         </div>
-
-        {price && (
-            <div className="pt-6 border-t border-zinc-100 mt-auto">
-                <p className="text-[10px] font-mono uppercase tracking-widest text-zinc-400 mb-1">Starting from</p>
-                <p className="text-xl font-bold text-piton-black">{price}</p>
-            </div>
-        )}
     </div>
 );
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Reveal from './Reveal';
-import { Calendar, Mail, Lock } from 'lucide-react';
+import { Calendar, Mail } from 'lucide-react';
 
 interface ContactProps {
     showFooter?: boolean;
@@ -74,9 +74,6 @@ const Contact: React.FC<ContactProps> = ({ showFooter = true }) => {
                             <div className="text-center text-zinc-800 text-[10px] font-mono uppercase">
                                 © 2024 PITON DIGITAL. ALL RIGHTS RESERVED.
                             </div>
-                            <a href="#admin" onClick={() => window.location.hash = 'admin'} className="flex items-center gap-1 text-zinc-800 hover:text-zinc-600 transition-colors text-[10px] font-mono uppercase tracking-widest interactive">
-                                <Lock className="w-3 h-3" /> Admin Access
-                            </a>
                         </div>
                     </>
                 )}

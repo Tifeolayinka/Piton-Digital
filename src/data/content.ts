@@ -258,29 +258,25 @@ export const testimonials = [
     quote: "Life - working with you has been a pleasure. The level of detail and execution you bring to the development process has been crucial in ensuring we meet our MVP targets",
     name: "Chad D.",
     role: "Founder - Bali Family Find",
-    companyShort: "Bali FF",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
+    companyShort: "Bali FF"
   },
   {
     quote: "Piton didn't just build our app; they completely reimagined our user journey. The Vibe Coding approach sounds like a gimmick until you feel the difference in the final product. Absolute game changer.",
     name: "Sarah J.",
     role: "CEO - Velvet Rope",
-    companyShort: "Velvet",
-    image: "https://randomuser.me/api/portraits/women/44.jpg"
+    companyShort: "Velvet"
   },
   {
     quote: "Fast, precise, and incredibly stylish. The team understood our brand constraints immediately and delivered a Webflow implementation that exceeded our wildest expectations.",
     name: "Marcus T.",
     role: "Director - Horizon Labs",
-    companyShort: "Horizon",
-    image: "https://randomuser.me/api/portraits/men/85.jpg"
+    companyShort: "Horizon"
   },
   {
     quote: "Working with the Piton team felt less like hiring an agency and more like bringing on a technical co-founder. They challenged our assumptions and made the product better for it.",
     name: "Elena Rodriguez",
     role: "Product Lead - Swift",
-    companyShort: "Swift",
-    image: "https://randomuser.me/api/portraits/women/65.jpg"
+    companyShort: "Swift"
   }
 ];
 

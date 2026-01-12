@@ -1,16 +1,105 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send } from 'lucide-react';
 
 const WhatsAppWidget: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [showPreview, setShowPreview] = useState(false);
+    const audioRef = useRef<HTMLAudioElement | null>(null);
     const phoneNumber = "2348068159010";
     const message = "Hi Tife, I'm interested in working with you!";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
+    useEffect(() => {
+        // Initialize audio
+        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3');
+        audio.preload = 'auto';
+        audioRef.current = audio;
+
+        // Function to unlock audio on first user interaction
+        const unlockAudio = () => {
+            if (audioRef.current) {
+                audioRef.current.play().then(() => {
+                    audioRef.current?.pause();
+                    audioRef.current!.currentTime = 0;
+                }).catch(() => { });
+                window.removeEventListener('click', unlockAudio);
+                window.removeEventListener('touchstart', unlockAudio);
+            }
+        };
+
+        window.addEventListener('click', unlockAudio);
+        window.addEventListener('touchstart', unlockAudio);
+
+        const timer = setTimeout(() => {
+            if (!isOpen) {
+                setShowPreview(true);
+            }
+        }, 5000);
+
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener('click', unlockAudio);
+            window.removeEventListener('touchstart', unlockAudio);
+        };
+    }, []);
+
+    // Separate effect to handle sound when showPreview changes
+    const hasPlayedRef = useRef(false);
+    useEffect(() => {
+        if (showPreview && !hasPlayedRef.current && !isOpen) {
+            const playPromise = audioRef.current?.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Autoplay prevented:", error);
+                });
+            }
+            hasPlayedRef.current = true;
+        }
+    }, [showPreview, isOpen]);
+
     return (
         <div className="fixed bottom-8 right-8 z-[60] flex flex-col items-end gap-4">
             <AnimatePresence>
+                {/* Message Preview Bubble */}
+                {showPreview && !isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                        onClick={() => {
+                            setIsOpen(true);
+                            setShowPreview(false);
+                        }}
+                        className="bg-white p-4 rounded-2xl shadow-2xl border border-zinc-100 mb-2 cursor-pointer hover:bg-zinc-50 transition-colors relative group max-w-[280px]"
+                    >
+                        <div className="flex items-start gap-3">
+                            <div className="w-8 h-8 rounded-full bg-zinc-100 overflow-hidden shrink-0">
+                                <img
+                                    src="https://piton-digital.s3.eu-north-1.amazonaws.com/Portfolio+Image.JPG"
+                                    alt="Tife"
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
+                            <div>
+                                <p className="text-zinc-800 text-xs font-medium leading-relaxed">
+                                    Hey there! 👋 Any questions about our services? I'm here to help!
+                                </p>
+                                <span className="text-[9px] text-zinc-400 mt-1 block">Just now</span>
+                            </div>
+                        </div>
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setShowPreview(false);
+                            }}
+                            className="absolute -top-2 -left-2 w-6 h-6 bg-white rounded-full shadow-md border border-zinc-100 flex items-center justify-center text-zinc-400 hover:text-zinc-600 opacity-0 group-hover:opacity-100 transition-opacity"
+                        >
+                            <X size={12} />
+                        </button>
+                    </motion.div>
+                )}
+
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
@@ -82,7 +171,10 @@ const WhatsAppWidget: React.FC = () => {
             <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                    setIsOpen(!isOpen);
+                    setShowPreview(false);
+                }}
                 className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-colors relative ${isOpen ? 'bg-zinc-900 text-white' : 'bg-[#25D366] text-white'}`}
             >
                 {isOpen ? <X size={24} /> : <MessageCircle size={28} />}

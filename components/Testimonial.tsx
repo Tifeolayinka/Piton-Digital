@@ -174,7 +174,6 @@ interface TestimonialData {
   name: string;
   role: string;
   companyShort: string;
-  image: string;
 }
 
 const testimonials: TestimonialData[] = [
@@ -182,29 +181,25 @@ const testimonials: TestimonialData[] = [
     quote: "Working with Tife has been an excellent experience. He contributed to a few projects that demanded quick turnarounds and creative problem-solving. His strong design sense and attention to user experience made him an indispensable asset to our team.",
     name: "Chad D.",
     role: "Founder - ChiaDigital",
-    companyShort: "ChiaDigital",
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
+    companyShort: "ChiaDigital"
   },
   {
     quote: "Tife has been great to work with. He's helped on a project where we need quick turn-arounds and outside of the box thinking! He's got a good eye for design and UX and would be a great compliment to your project!",
     name: "Jonathan B.",
     role: "CEO - Ajuda Benefit",
-    companyShort: "Ajuda Benefit",
-    image: "https://randomuser.me/api/portraits/women/44.jpg"
+    companyShort: "Ajuda Benefit"
   },
   {
     quote: "Tife has a great eye for design, works quickly and easy to work alongside. He built a marketplace and custom CMS for us in Bubble. I look forward to working with him again.",
     name: "Nick A.",
     role: "Product Manager - Alteams",
-    companyShort: "Alteams",
-    image: "https://randomuser.me/api/portraits/men/85.jpg"
+    companyShort: "Alteams"
   },
   {
     quote: "Working with the Piton team felt less like hiring an agency and more like bringing on a technical co-founder. They challenged our assumptions and made the product better for it.",
     name: "Elena Rodriguez",
     role: "Product Lead - Swift",
-    companyShort: "Swift",
-    image: "https://randomuser.me/api/portraits/women/65.jpg"
+    companyShort: "Swift"
   }
 ];
 
@@ -293,9 +288,6 @@ const Testimonial: React.FC<TestimonialProps> = ({ showVideo = true }) => {
 
               <div className="flex items-center justify-between border-t border-zinc-200 pt-6 select-none">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-zinc-300 overflow-hidden">
-                    <img src={testimonials[currentIndex].image} alt={testimonials[currentIndex].name} className="w-full h-full object-cover" />
-                  </div>
                   <div className="text-left">
                     <div className="font-bold text-sm text-piton-black">{testimonials[currentIndex].name}</div>
                     <div className="text-[10px] text-zinc-500 uppercase">{testimonials[currentIndex].role}</div>
