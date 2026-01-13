@@ -26,85 +26,38 @@ const Services: React.FC = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-zinc-100 border border-zinc-100">
-                    {/* Service 1 - UI/UX Design */}
+                    {/* Service 1 - Product Strategy */}
                     <Reveal width="100%" className="h-full" style={{ height: '100%' }}>
                         <ServiceCard
                             number="01"
-                            title="UI/UX Design"
-                            desc="For teams that have dev resources but need world-class interface design. We deliver production-ready Figma files."
-                            tags={['Product Design', 'Design Systems', 'Prototyping']}
-                            icon={<Figma className="w-6 h-6" />}
-                        />
-                    </Reveal>
-
-                    {/* Service 2 - No-Code Development */}
-                    <Reveal width="100%" delay={0.1} className="h-full" style={{ height: '100%' }}>
-                        <ServiceCard
-                            number="02"
-                            title="No-Code Dev"
-                            desc="For founders who have designs ready. We turn your Figma files into pixel-perfect, scalable software using Bubble or Webflow."
-                            tags={['Webflow', 'Bubble', 'Weweb', 'Flutterflow']}
-                            icon={<Code className="w-6 h-6" />}
-                        />
-                    </Reveal>
-
-                    {/* Service 3 - Full Cycle */}
-                    <Reveal width="100%" delay={0.2} className="h-full" style={{ height: '100%' }}>
-                        <ServiceCard
-                            number="03"
-                            title="Full-Cycle Product"
-                            desc="From zero to launched. We handle strategy, design, and development for MVPs, SaaS platforms, and mobile apps."
-                            tags={['Strategy', 'Product Design', 'Development']}
-                            icon={<Smartphone className="w-6 h-6" />}
-                        />
-                    </Reveal>
-
-                    {/* Service 4 - Internal Systems */}
-                    <Reveal width="100%" className="h-full" style={{ height: '100%' }}>
-                        <ServiceCard
-                            number="04"
-                            title="Internal Systems"
-                            desc="Custom admin panels and operational tools for businesses. Replace spreadsheets with powerful, automated software."
-                            tags={['Admin Panels', 'Dashboards', 'Automations']}
+                            title="Product Strategy"
+                            desc="The Blueprint. We don't write a single line of code until we understand your business model, user flows, and data structure. This prevents costly pivots later."
+                            tags={['Roadmapping', 'Data Modeling', 'MVP Scoping']}
                             icon={<Layout className="w-6 h-6" />}
                         />
                     </Reveal>
 
-                    {/* Service 5 - Automations */}
+                    {/* Service 2 - High-Fidelity Design */}
                     <Reveal width="100%" delay={0.1} className="h-full" style={{ height: '100%' }}>
                         <ServiceCard
-                            number="05"
-                            title="Automations"
-                            desc="Connecting your favorite tools to save hours of manual data entry. Make.com and Zapier integrations."
-                            tags={['Make.com', 'Zapier', 'API Integrations']}
-                            icon={<Zap className="w-6 h-6" />}
+                            number="02"
+                            title="High-Fidelity Design"
+                            desc="The Interface. We design pixel-perfect, interactive prototypes in Figma that look and feel like the real thing. No templates, just custom brand-aligned UI."
+                            tags={['Figma', 'Design Systems', 'Prototyping']}
+                            icon={<Figma className="w-6 h-6" />}
                         />
                     </Reveal>
 
-                    {/* Service 6 - CTA Card */}
+                    {/* Service 3 - Bubble Development */}
                     <Reveal width="100%" delay={0.2} className="h-full" style={{ height: '100%' }}>
-                        <a
-                            href="https://cal.com/tifeolayinka/project-consultation"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="bg-piton-black p-12 flex flex-col justify-between group relative overflow-hidden h-full block"
-                        >
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_0%,rgba(0,166,81,0.2),rgba(0,0,0,0)_50%)]"></div>
-                            <div className="relative z-10">
-                                <span className="text-zinc-500 font-mono text-xs tracking-widest uppercase mb-4 block">06</span>
-                                <h3 className="text-3xl font-display font-bold text-white mb-4">Not sure what you need?</h3>
-                                <p className="text-zinc-400 text-sm leading-relaxed mb-8">
-                                    Book a strategy call. We'll analyze your situation and recommend the right path—whether it's design, build, or both.
-                                </p>
-                            </div>
-                            <div className="relative z-10 flex justify-end">
-                                <div className="w-12 h-12 rounded-full bg-white text-piton-black flex items-center justify-center group-hover:scale-110 transition-transform cursor-pointer">
-                                    <ArrowUpRight className="w-5 h-5" />
-                                </div>
-                            </div>
-                        </a>
+                        <ServiceCard
+                            number="03"
+                            title="Bubble Development"
+                            desc="The Engine. We build robust, scalable applications on Bubble. From complex marketplaces to SaaS platforms, we ship production-grade software fast."
+                            tags={['Bubble.io', 'API Integrations', 'Backend Logic']}
+                            icon={<Code className="w-6 h-6" />}
+                        />
                     </Reveal>
-
                 </div>
             </div>
         </section>

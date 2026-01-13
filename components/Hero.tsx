@@ -14,11 +14,11 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({
-  title = "We design & build scalable digital products for founders & businesses who care about clarity.",
-  subtitle = "Stop drowning in messy workflows. We build structured, scalable internal tools and MVPs that actually work—handling strategy, design, and no-code development in one unified process.",
-  badgeText = "→ Clarity • Structure • Scale ←",
+  title = "Strategy-Led Design & Scalable Bubble Development.",
+  subtitle = "I help founders bridge the gap between complex ideas and launched products. No bloat, just expert strategy, world-class design, and robust no-code engineering.",
+  badgeText = "→ Strategy • Design • Build ←",
   ctaText = "Start with a $500 Starter Module",
-  secondaryCtaText = "Book a short call",
+  secondaryCtaText = "Book Strategy Call",
   showLogos = true,
   trustText = "Trusted by 22+ founders & business owners"
 }) => {

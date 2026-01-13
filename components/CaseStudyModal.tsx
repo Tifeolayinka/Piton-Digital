@@ -113,19 +113,45 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-20">
 
               {/* Sticky Sidebar */}
-              <div className="lg:col-span-4">
-                <div className="sticky top-20 space-y-12">
+              <div className="lg:col-span-4 order-2 lg:order-1">
+                <div className="sticky top-20 space-y-8">
+
+                  {/* Primary CTA - Conversion Focus */}
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="space-y-8"
+                    className="p-6 bg-piton-black rounded-2xl text-white shadow-xl"
+                  >
+                    <h3 className="text-lg font-display font-bold mb-2">Want results like this?</h3>
+                    <p className="text-zinc-400 text-sm mb-6 leading-relaxed">
+                      We build systems that scale. Let's discuss your project.
+                    </p>
+                    <a
+                      href="https://cal.com/tifeolayinka/project-consultation"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full py-3 bg-piton-accent text-white text-center rounded-xl font-bold text-sm hover:bg-[#008f45] transition-colors"
+                    >
+                      Book Strategy Call
+                    </a>
+                  </motion.div>
+
+
+
+                  {/* Project Metadata */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2 }}
+                    className="space-y-8 px-2"
                   >
                     <div>
                       <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3">Services</h3>
                       <div className="flex flex-wrap gap-2">
                         {data.services.map((s, i) => (
-                          <span key={i} className="px-3 py-1 border border-zinc-200 rounded-full text-sm font-medium">{s}</span>
+                          <span key={i} className="px-3 py-1 border border-zinc-200 rounded-full text-sm font-medium text-zinc-600">{s}</span>
                         ))}
                       </div>
                     </div>
@@ -133,32 +159,13 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                       <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3">Tools</h3>
                       <div className="flex flex-wrap gap-2">
                         {data.tools.map((t, i) => (
-                          <span key={i} className="px-3 py-1 border border-zinc-200 rounded-full text-sm font-medium">{t}</span>
+                          <span key={i} className="px-3 py-1 border border-zinc-200 rounded-full text-sm font-medium text-zinc-600">{t}</span>
                         ))}
                       </div>
                     </div>
                     <div>
                       <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-3">Timeline</h3>
-                      <p className="text-xl font-display font-bold">{data.timeline}</p>
-                    </div>
-                  </motion.div>
-
-                  {/* Impact Stats (Moved to sidebar for desktop) */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="p-8 bg-zinc-50 rounded-2xl border border-zinc-100"
-                  >
-                    <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400 mb-6">Impact</h3>
-                    <div className="space-y-6">
-                      {data.stats.map((stat, i) => (
-                        <div key={i}>
-                          <div className="text-4xl font-display font-bold text-piton-black">{stat.value}</div>
-                          <div className="text-sm text-zinc-500">{stat.label}</div>
-                        </div>
-                      ))}
+                      <p className="text-xl font-display font-bold text-piton-black">{data.timeline}</p>
                     </div>
                   </motion.div>
 
@@ -168,11 +175,11 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                       href={data.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.3 }}
-                      className="block w-full py-4 bg-piton-black text-white text-center rounded-xl font-medium hover:bg-zinc-800 transition-colors flex items-center justify-center gap-2 group"
+                      className="block w-full py-4 border border-zinc-200 text-zinc-800 text-center rounded-xl font-medium hover:border-piton-black hover:bg-piton-black hover:text-white transition-all flex items-center justify-center gap-2 group"
                     >
                       <span>Visit Live Site</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -182,7 +189,7 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
               </div>
 
               {/* Main Content */}
-              <div className="lg:col-span-8 space-y-24">
+              <div className="lg:col-span-8 space-y-24 order-1 lg:order-2">
 
                 {/* Intro */}
                 <section>
@@ -282,22 +289,27 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                   </p>
 
                   {data.testimonial && (
-                    <div className="bg-zinc-50 text-black p-8 md:p-16 rounded-2xl border border-zinc-100">
-                      <div className="text-lg md:text-2xl font-medium leading-relaxed relative z-10 mb-8 text-piton-black font-sans">
+                    <div className="bg-zinc-900 text-white p-8 md:p-16 rounded-2xl border border-zinc-800 relative overflow-hidden">
+                      <div className="absolute top-0 right-0 p-12 opacity-10">
+                        <svg width="100" height="100" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V11C14.017 11.5523 13.5693 12 13.017 12H12.017V5H22.017V15C22.017 16.6569 20.6739 18 19.017 18H16.017C15.4647 18 15.017 18.4477 15.017 19V21H14.017ZM5.0166 21L5.0166 18C5.0166 16.8954 5.91203 16 7.0166 16H10.0166C10.5689 16 11.0166 15.5523 11.0166 15V9C11.0166 8.44772 10.5689 8 10.0166 8H6.0166C5.46432 8 5.0166 8.44772 5.0166 9V11C5.0166 11.5523 4.56889 12 4.0166 12H3.0166V5H13.0166V15C13.0166 16.6569 11.6735 18 10.0166 18H7.0166C6.46432 18 6.0166 18.4477 6.0166 19V21H5.0166Z" />
+                        </svg>
+                      </div>
+                      <div className="text-lg md:text-2xl font-medium leading-relaxed relative z-10 mb-8 font-sans">
                         "{data.testimonial.quote}"
                       </div>
 
-                      <div className="flex items-center justify-between border-t border-zinc-200 pt-6">
+                      <div className="flex items-center justify-between border-t border-zinc-800 pt-6">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-zinc-300 overflow-hidden">
+                          <div className="w-10 h-10 rounded-full bg-zinc-800 overflow-hidden">
                             <img src={data.testimonial.avatar} alt={data.testimonial.author} className="w-full h-full object-cover" />
                           </div>
                           <div className="text-left">
-                            <div className="font-bold text-sm text-piton-black">{data.testimonial.author}</div>
-                            <div className="text-[10px] text-zinc-500 uppercase">{data.testimonial.role}</div>
+                            <div className="font-bold text-sm text-white">{data.testimonial.author}</div>
+                            <div className="text-[10px] text-zinc-400 uppercase">{data.testimonial.role}</div>
                           </div>
                         </div>
-                        <div className="text-zinc-400 font-bold text-sm hidden sm:block">
+                        <div className="text-zinc-500 font-bold text-sm hidden sm:block">
                           {data.testimonial.company}
                         </div>
                       </div>
@@ -339,13 +351,32 @@ const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ isOpen, onClose, data }
                   </section>
                 )}
 
-                <div className="flex justify-center pt-12 pb-20">
-                  <button onClick={onClose} className="group flex flex-col items-center gap-4">
-                    <div className="w-16 h-16 rounded-full border border-zinc-200 flex items-center justify-center group-hover:bg-piton-black group-hover:border-piton-black transition-all duration-300">
-                      <ArrowRight className="w-6 h-6 text-piton-black group-hover:text-white transition-colors" />
+                {/* Final Conversion Block */}
+                <div className="py-12 border-t border-zinc-100">
+                  <div className="bg-zinc-50 rounded-3xl p-8 md:p-12 text-center">
+                    <h3 className="text-2xl md:text-3xl font-display font-bold text-piton-black mb-4">
+                      Ready to build your own?
+                    </h3>
+                    <p className="text-zinc-500 mb-8 max-w-lg mx-auto">
+                      Stop guessing. Start building systems that actually work.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <a
+                        href="https://cal.com/tifeolayinka/project-consultation"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-8 py-4 bg-piton-black text-white rounded-xl font-bold hover:bg-zinc-800 transition-colors w-full sm:w-auto"
+                      >
+                        Book Strategy Call
+                      </a>
+                      <button
+                        onClick={onClose}
+                        className="px-8 py-4 bg-white border border-zinc-200 text-zinc-600 rounded-xl font-bold hover:bg-zinc-50 transition-colors w-full sm:w-auto"
+                      >
+                        Keep Exploring
+                      </button>
                     </div>
-                    <span className="font-mono uppercase tracking-widest text-sm text-zinc-400 group-hover:text-piton-black transition-colors">Close Project</span>
-                  </button>
+                  </div>
                 </div>
 
               </div>
