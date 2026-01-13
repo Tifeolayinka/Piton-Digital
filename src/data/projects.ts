@@ -224,11 +224,13 @@ export const projects: Project[] = [
                 "Clearly communicating speed, reliability, and business value within seconds of landing on the site."
             ],
             process: "We adopted a dual-audience, trust-first approach. In Figma, we designed a clean, modular interface that supports both consumer purchase flows and business dashboards without overlap or confusion. Using Bubble, we implemented wallet systems, transaction flows, vendor pricing logic, and business dashboards while maintaining high performance under large transaction volumes.",
+            /*  
             stats: [
-                { label: "Total Transaction Volume", value: "$1B+" },
-                { label: "Transactions Processed", value: "Millions+" },
-                { label: "Transaction Success Rate", value: "99.9%" }
-            ],
+                  { label: "Total Transaction Volume", value: "$1B+" },
+                  { label: "Transactions Processed", value: "Millions+" },
+                  { label: "Transaction Success Rate", value: "99.9%" }
+                    ],
+            */
             testimonial: {
                 quote: "DemmyPay works perfectly for both our personal use and our data business. It’s fast, reliable, and easy to manage.",
                 author: "Ayomide",
