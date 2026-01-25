@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Reveal from './Reveal';
-import { Rocket, Check, X, AlertTriangle, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Rocket, Check, X, AlertTriangle, ArrowRight } from 'lucide-react';
 
 const StarterModule: React.FC = () => {
     const categories = [
@@ -82,39 +82,44 @@ const StarterModule: React.FC = () => {
                     </Reveal>
                 </div>
 
-
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left border-collapse">
-                        <thead>
-                            <tr className="border-b border-zinc-200">
-                                <th className="py-6 px-4 font-mono text-xs uppercase tracking-widest text-zinc-400">Feature</th>
-                                <th className="py-6 px-4 font-display font-bold text-xl text-piton-black bg-zinc-50/50">Piton Digital</th>
-                                <th className="py-6 px-4 font-display font-bold text-xl text-zinc-300">Generalist Agency</th>
-                                <th className="py-6 px-4 font-display font-bold text-xl text-zinc-300">Generic Dev Shop</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-zinc-100">
-                            {[
-                                { feature: 'Strategy', piton: 'Business-First', agency: 'Generic / Fluff', dev: 'None' },
-                                { feature: 'Design Quality', piton: 'World-Class (Figma)', agency: 'Hit or Miss', dev: 'Basic / Template' },
-                                { feature: 'Development', piton: 'Scalable Bubble', agency: 'Outsourced', dev: 'Spaghetti Code' },
-                                { feature: 'Speed', piton: 'Weeks', agency: 'Months', dev: 'Weeks (but buggy)' },
-                                { feature: 'Cost', piton: 'High Value', agency: 'Bloated', dev: 'Cheap (at first)' },
-                            ].map((row, i) => (
-                                <tr key={i} className="group hover:bg-zinc-50 transition-colors">
-                                    <td className="py-6 px-4 font-medium text-zinc-500">{row.feature}</td>
-                                    <td className="py-6 px-4 font-bold text-piton-black bg-zinc-50/50 group-hover:bg-zinc-100/50 transition-colors">
-                                        <div className="flex items-center gap-2">
-                                            <CheckCircle2 className="w-4 h-4 text-piton-accent" />
-                                            {row.piton}
-                                        </div>
-                                    </td>
-                                    <td className="py-6 px-4 text-zinc-400">{row.agency}</td>
-                                    <td className="py-6 px-4 text-zinc-400">{row.dev}</td>
-                                </tr>
+                <div className="overflow-x-auto pb-8">
+                    <div className="min-w-[1000px]">
+                        {/* Header Row */}
+                        <div className="grid grid-cols-5 gap-4 mb-8">
+                            <div className="flex items-center justify-center p-6 rounded-full border-2 border-dashed border-zinc-200 bg-zinc-50">
+                                <span className="text-xs font-bold uppercase tracking-widest text-zinc-400">What You Want to Do</span>
+                            </div>
+                            {competitors.map((comp, i) => (
+                                <div key={i} className={`flex items-center justify-center p-6 rounded-full border-2 ${comp.border} ${comp.color} ${comp.textColor} shadow-xl shadow-black/5`}>
+                                    <span className="text-xs font-bold uppercase tracking-widest">{comp.name}</span>
+                                </div>
                             ))}
-                        </tbody>
-                    </table>
+                        </div>
+
+                        {/* Category Rows */}
+                        <div className="space-y-4">
+                            {categories.map((cat, catIdx) => (
+                                <div key={catIdx} className="grid grid-cols-5 gap-4 items-stretch">
+                                    <div className="flex items-center p-6 bg-white text-sm font-medium text-piton-black">
+                                        {cat}
+                                    </div>
+                                    {competitors.map((comp, compIdx) => {
+                                        const val = comp.values[catIdx];
+                                        return (
+                                            <div key={compIdx} className={`flex items-center gap-3 p-6 rounded-2xl ${compIdx === 0 ? 'bg-zinc-50' : 'bg-white'} transition-colors`}>
+                                                {val.type === 'check' && <Check className="w-4 h-4 text-piton-accent shrink-0" />}
+                                                {val.type === 'warn' && <AlertTriangle className="w-4 h-4 text-yellow-500 shrink-0" />}
+                                                {val.type === 'cross' && <X className="w-4 h-4 text-red-500 shrink-0" />}
+                                                <span className={`text-[13px] leading-snug ${compIdx === 0 ? 'text-piton-black font-medium' : 'text-zinc-500'}`}>
+                                                    {val.text}
+                                                </span>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
 
                 <div className="mt-20 text-center">
