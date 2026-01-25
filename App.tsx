@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HeroScroll from './components/HeroScroll';
@@ -168,6 +169,8 @@ const App: React.FC = () => {
           />
         )}
       </AnimatePresence>
+
+      <Analytics />
     </div>
   );
 };
