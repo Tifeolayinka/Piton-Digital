@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   ArrowRight,
   Shield,
@@ -19,8 +19,48 @@ interface OfferProps {
   onProjectClick: (project: CaseStudyData) => void;
 }
 
-// Replace with your actual Calendly event URL
-const CALENDLY_URL = 'https://calendly.com/pitondigital/discovery';
+const CAL_LINK = 'tifeolayinka/free-app-consultation-business';
+const CAL_URL = `https://cal.com/${CAL_LINK}`;
+
+function CalEmbed() {
+  useEffect(() => {
+    const w = window as any;
+    (function (C: any, A: string, L: string) {
+      const p = (a: any, ar: any) => { a.q.push(ar); };
+      const d = C.document;
+      C.Cal = C.Cal || function (...args: any[]) {
+        const cal = C.Cal;
+        if (!cal.loaded) {
+          cal.ns = {}; cal.q = cal.q || [];
+          d.head.appendChild(d.createElement('script')).src = A;
+          cal.loaded = true;
+        }
+        if (args[0] === L) {
+          const api: any = (...a: any[]) => p(api, a);
+          const ns = args[1]; api.q = api.q || [];
+          if (typeof ns === 'string') { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], args); p(cal, ['initNamespace', ns]); }
+          else p(cal, args); return;
+        }
+        p(cal, args);
+      };
+    })(w, 'https://app.cal.com/embed/embed.js', 'init');
+
+    w.Cal('init', CAL_LINK, { origin: 'https://app.cal.com' });
+    w.Cal.ns[CAL_LINK]('inline', {
+      elementOrSelector: '#cal-inline-embed',
+      config: { layout: 'month_view', useSlotsViewOnSmallScreen: 'true' },
+      calLink: CAL_LINK,
+    });
+    w.Cal.ns[CAL_LINK]('ui', { hideEventTypeDetails: false, layout: 'month_view' });
+  }, []);
+
+  return (
+    <div
+      id="cal-inline-embed"
+      style={{ width: '100%', minHeight: '700px', overflow: 'scroll' }}
+    />
+  );
+}
 
 const VIDEO_SRC =
   'https://www.dropbox.com/scl/fi/yw0qecltes8m24g35xlnu/VIDEO-FOR-TIFE.mp4?rlkey=dnxoimcvgvjo93kss7bi69fnj&raw=1';
@@ -84,7 +124,7 @@ const benefits = [
 ];
 
 const Offer: React.FC<OfferProps> = ({ onProjectClick }) => {
-  const bookCall = () => window.open(CALENDLY_URL, '_blank');
+  const bookCall = () => window.open(CAL_URL, '_blank');
 
   const whatsapp = () => {
     const msg = encodeURIComponent(
@@ -190,14 +230,7 @@ const Offer: React.FC<OfferProps> = ({ onProjectClick }) => {
 
           <Reveal delay={0.1} width="100%">
             <div className="rounded-2xl overflow-hidden border border-zinc-200 shadow-sm bg-white">
-              <iframe
-                src={`${CALENDLY_URL}?embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1&background_color=ffffff&text_color=09090b&primary_color=00a651`}
-                width="100%"
-                height="700"
-                frameBorder="0"
-                title="Book a call with Piton"
-                className="min-h-[700px]"
-              />
+              <CalEmbed />
             </div>
             <p className="text-xs text-zinc-400 mt-4 text-center">
               No credit card. No pressure. Everything is confidential.
@@ -397,21 +430,8 @@ const Offer: React.FC<OfferProps> = ({ onProjectClick }) => {
             </p>
           </Reveal>
 
-          <Reveal delay={0.1} width="100%">
-            <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900">
-              <iframe
-                src={`${CALENDLY_URL}?embed_type=Inline&hide_event_type_details=1&hide_gdpr_banner=1&background_color=18181b&text_color=fafafa&primary_color=00a651`}
-                width="100%"
-                height="650"
-                frameBorder="0"
-                title="Book a call with Piton"
-                className="min-h-[650px]"
-              />
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Reveal delay={0.1}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <button
                 onClick={bookCall}
                 className="px-7 py-3.5 bg-white text-zinc-950 hover:bg-zinc-100 rounded-full font-bold text-sm transition-colors inline-flex items-center gap-2 interactive"
