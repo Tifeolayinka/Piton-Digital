@@ -15,7 +15,6 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import ClimbingLine from './components/ClimbingLine';
 import CustomCursor from './components/CustomCursor';
-import LoadingScreen from './components/LoadingScreen';
 import Admin from './src/pages/Admin';
 import CaseStudyModal, { CaseStudyData } from './components/CaseStudyModal';
 import StarterModule from './components/StarterModule';
@@ -23,6 +22,7 @@ import Reveal from './components/Reveal';
 import Portfolio from './src/pages/Portfolio';
 import DesignPortfolio from './src/pages/DesignPortfolio';
 import NoCodePortfolio from './src/pages/NoCodePortfolio';
+import Offer from './src/pages/Offer';
 import WhatsAppWidget from './components/WhatsAppWidget';
 
 const NoiseOverlay = () => (
@@ -38,7 +38,6 @@ const NoiseOverlay = () => (
 
 const App: React.FC = () => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedProject, setSelectedProject] = useState<CaseStudyData | null>(null);
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
@@ -79,6 +78,9 @@ const App: React.FC = () => {
     }
     if (currentPath === '/nocode') {
       return <NoCodePortfolio onProjectClick={setSelectedProject} />;
+    }
+    if (currentPath === '/offer') {
+      return <Offer onProjectClick={setSelectedProject} />;
     }
 
     return (
@@ -145,10 +147,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#FDFDFD] text-piton-black font-sans selection:bg-piton-accent selection:text-white md:cursor-none antialiased">
-      <AnimatePresence mode="wait">
-        {isLoading && <LoadingScreen onComplete={() => setIsLoading(false)} />}
-      </AnimatePresence>
-
       <div className="hidden md:block">
         <CustomCursor />
       </div>
